@@ -40,7 +40,7 @@
 
     <servlet-mapping>
         <servlet-name>analysis</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/analysis</url-pattern>
     </servlet-mapping>
 
     <!--<servlet-mapping>-->
