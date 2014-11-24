@@ -1,42 +1,59 @@
 package com.dempe.analysis.core;
 
-/**
- * Created by dempe on 14-6-23.
- */
-
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
+import org.apache.log4j.Logger;
+
+import java.util.List;
 
 /**
- * @author dempe
- * @version 1.0
- * @Description 读配置文件
- * @date 2014-5-27下午06:40:59
+ * 配置analystics启动参数
+ * 读取配置顺序依次为：启动参数，配置文件参数，环境变量参数
+ *
+ * @author : Dempe
+ * @version 1.0 date : 2014/10/13
  */
 public class Config {
-    private static PropertiesConfiguration config = null;
 
+    private static final Logger LOGGER = Logger.getLogger(Config.class);
+
+    private static PropertiesConfiguration conf;
 
     static {
+        initProp();
+    }
+
+    public static void initProp() {
         try {
-            config = new PropertiesConfiguration("simulator.properties");
+            conf = new PropertiesConfiguration(R.PROPS_NAME);
         } catch (ConfigurationException e) {
-            e.printStackTrace();
+            LOGGER.error(e);
         }
     }
 
-    public static String get(String key) {
-        return config.getString(key);
+
+    public static String getString(String key) {
+        String str = System.getenv(key);
+        if (str == null) {
+            str = conf.getString(key);
+        }
+        return str;
     }
 
-    /**
-     * 读取key，如果不存在，则返回defaultValue
-     *
-     * @param key
-     * @param
-     * @return
-     */
-    public static String get(String key, String defaultValue) {
-        return config.getString(key, defaultValue);
+    public static String getString(String key, String defaultValue) {
+        String str = System.getenv(key);
+        if (str == null) {
+            str = conf.getString(key, defaultValue);
+        }
+        return str;
+    }
+
+    public static Integer getInteger(String key, Integer defaultNumber) {
+        return conf.getInteger(key, defaultNumber);
+    }
+
+
+    public static List<Object> getList(String key) {
+        return conf.getList(key);
     }
 }

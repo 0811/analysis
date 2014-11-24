@@ -10,4 +10,7 @@ public class Constants {
     public static final String M = "m";
 
 
+    public final static String ss = "";
+
+
 }
