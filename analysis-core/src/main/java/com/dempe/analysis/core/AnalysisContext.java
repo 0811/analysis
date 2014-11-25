@@ -22,7 +22,6 @@ public class AnalysisContext {
 
     private int taskNum;
     private boolean closeOnJvmShutdown = true;
-    private String queueDataDir;
 
 
     private BlockingQueue<String> blockingQueue;
@@ -31,7 +30,6 @@ public class AnalysisContext {
     public AnalysisContext(AnalysisBuilder builder) {
         this.taskNum = builder.getTaskNum();
         this.closeOnJvmShutdown = builder.isCloseOnJvmShutdown();
-        this.queueDataDir = builder.getQueueDataDir();
         blockingQueue = new ArrayBlockingQueue<String>(50000);
 
     }

@@ -8,15 +8,15 @@ import com.dempe.analysis.core.Config;
  */
 public class MonitorProp {
 
-    public static final String[] MONITOR_APPKEYS = Config.get("client.monitor.appkeys").split(",");
+    public static final String[] MONITOR_APPKEYS = Config.getString("client.monitor.appkeys").split(",");
 
-    public static final String QUEUE_URL = Config.get("client.monitor.url");
+    public static final String QUEUE_URL = Config.getString("client.monitor.url");
 
-    public static final int THREAD_NUM = Integer.parseInt(Config.get("client.monitor.nthread"));
+    public static final int THREAD_NUM = Integer.parseInt(Config.getString("client.monitor.nthread"));
 
-    public static final int THREAD_SLEEP = Integer.parseInt(Config.get("client.monitor.sleep"));
+    public static final int THREAD_SLEEP = Integer.parseInt(Config.getString("client.monitor.sleep"));
 
-    public static final int MSG_NUM = Integer.parseInt(Config.get("client.monnitor.msg.num"));
+    public static final int MSG_NUM = Integer.parseInt(Config.getString("client.monnitor.msg.num"));
 
 
 }

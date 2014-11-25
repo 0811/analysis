@@ -59,7 +59,7 @@ public abstract class TimeSyncStoreMap implements Command {
     }
 
     public void incr(String key, String field) {
-        incr(key + ":" + field, 1);
+        incr(key + R.KEY_SPACE + field, 1);
     }
 
 

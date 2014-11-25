@@ -36,7 +36,8 @@ public class MessageSpout implements Runnable {
                 LOGGER.debug("[message]=" + message);
                 MessageHandler.streaming(message);
             } catch (Exception e) {
-                LOGGER.error("handle message error:" + e.getMessage());
+                e.printStackTrace();
+                LOGGER.error("handle message error:" + e);
             }
 
         }

@@ -20,18 +20,21 @@ public class MessageHandler {
     public static void streaming(String message) {
 
         JSONObject data = JSONObject.parseObject(message);
-        System.out.println(data);
 
-        JSONObject deviceData = data.getJSONObject(R.DEVICE_DATA);
-        JSONArray launchDatas = data.getJSONArray(R.LAUNCH_DATA);
-        JSONArray pageDatas = data.getJSONArray(R.PAGE_DATA);
-        JSONArray exitDatas = data.getJSONArray(R.EXIT_DATA);
-        JSONArray eventDatas = data.getJSONArray(R.EVENT_DATA);
-        JSONArray eventKVDatas = data.getJSONArray(R.EVENTKV_DATA);
+        String appkey = data.getString(R.APPKEY);
+        JSONObject m = data.getJSONObject("m");
+
+        JSONObject deviceData = m.getJSONObject(R.DEVICE_DATA);
+        JSONArray launchDatas = m.getJSONArray(R.LAUNCH_DATA);
+        JSONArray pageDatas = m.getJSONArray(R.PAGE_DATA);
+        JSONArray exitDatas = m.getJSONArray(R.EXIT_DATA);
+        JSONArray eventDatas = m.getJSONArray(R.EVENT_DATA);
+        JSONArray eventKVDatas = m.getJSONArray(R.EVENTKV_DATA);
+
 
 
         // 算启动数
-        String appkey = deviceData.getString(R.APPKEY);
+
         String deviceId = deviceData.getString(R.DEVICE_ID);
         String version = deviceData.getString(R.VERSION);
         String model = deviceData.getString(R.MODEL);
@@ -52,12 +55,12 @@ public class MessageHandler {
             launchData = launchDatas.getJSONObject(i);
             createDate = DateUtil.format(launchData.getString(R.CREATE_DATE));
             common_date_key = common_key.append(createDate);
-            countStoreMap.incr(new StringBuffer(R.USAGE_OVERRIDE).append(appkey).append(R.KEY_SPACE).append(createDate).toString());
-            countStoreMap.incr(new StringBuffer(R.USAGE_DAILY).append(common_date_key).toString());
-            countStoreMap.incr(new StringBuffer(R.DEVICE_COUNTRY).append(common_date_key).append(R.KEY_SPACE).append(country).toString());
-            countStoreMap.incr(new StringBuffer(R.DEVICE_CARRIER).append(common_date_key).append(R.KEY_SPACE).append(carrier).toString());
-            countStoreMap.incr(new StringBuffer(R.DEVICE_MODEL).append(common_date_key).append(R.KEY_SPACE).append(model).toString());
-            countStoreMap.incr(new StringBuffer(R.DEVICE_PROVINCE).append(common_date_key).append(R.KEY_SPACE).append(province).toString());
+            countStoreMap.incr(new StringBuffer(R.USAGE_OVERRIDE).append(R.DOLLAR_SPLIT).append(appkey).append(R.KEY_SPACE).append(createDate).toString(),R.COUNT);
+            countStoreMap.incr(new StringBuffer(R.USAGE_DAILY).append(R.DOLLAR_SPLIT).append(common_date_key).toString(),R.COUNT);
+            countStoreMap.incr(new StringBuffer(R.DEVICE_COUNTRY).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(country).toString(),R.COUNT);
+            countStoreMap.incr(new StringBuffer(R.DEVICE_CARRIER).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(carrier).toString(),R.COUNT);
+            countStoreMap.incr(new StringBuffer(R.DEVICE_MODEL).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(model).toString(),R.COUNT);
+            countStoreMap.incr(new StringBuffer(R.DEVICE_PROVINCE).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(province).toString(),R.COUNT);
 
         }
 

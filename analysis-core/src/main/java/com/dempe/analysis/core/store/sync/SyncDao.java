@@ -7,5 +7,5 @@ import java.util.Map;
  * @version 1.0 date : 2014/10/13
  */
 public interface SyncDao {
-    void sycn4Map(Map<String, Integer> storeMap);
+    void sync4Map(Map<String, Integer> storeMap);
 }

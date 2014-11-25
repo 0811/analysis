@@ -18,7 +18,7 @@ public class R {
     public final static String UNIQUE_ID = "uniqueId";
 
     //***********************configuration properties*****************
-    public final static String PROPS_NAME = "analystics.properties";
+    public final static String PROPS_NAME = "application.properties";
     public final static String MONGO_URL = "analystics.mongodb.url";
     public final static String SLEEP_TIME = "analystics.sync.interval";
 

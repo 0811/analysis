@@ -199,8 +199,8 @@ public class RandomClientMsgProducer {
         jsonObject.put("m", jo);
         //System.out.println(jo.toString());
 
-        //return jsonObject.toJSONString();
-        return gizpBase64(jo.toString());
+        return jsonObject.toJSONString();
+        //return gizpBase64(jo.toString());
 
 
     }

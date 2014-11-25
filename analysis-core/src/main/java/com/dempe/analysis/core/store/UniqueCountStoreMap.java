@@ -29,7 +29,7 @@ public class UniqueCountStoreMap extends TimeSyncStoreMap {
     @Override
     protected void sync(Map<String, Integer> storeMap) {
         LOGGER.debug("sync to mongodb start ...");
-        syncDao.sycn4Map(storeMap);
+        syncDao.sync4Map(storeMap);
     }
 
     public static UniqueCountStoreMap getInstance() {
