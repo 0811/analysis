@@ -3,6 +3,7 @@ package com.dempe.analysis.core;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.dempe.analysis.core.store.CountStoreMap;
 import com.dempe.analysis.core.store.TimeSyncStoreMap;
 import com.dempe.analysis.core.utils.DateUtil;
 
@@ -12,8 +13,7 @@ import com.dempe.analysis.core.utils.DateUtil;
  */
 public class MessageHandler {
 
-    private final static TimeSyncStoreMap storeMap  = new  TimeSyncStoreMap();
-
+    private final static CountStoreMap storeMap  =CountStoreMap.getInstance();
 
     public static void streaming(String message) {
 
