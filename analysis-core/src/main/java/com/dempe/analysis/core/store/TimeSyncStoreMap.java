@@ -58,11 +58,17 @@ public abstract class TimeSyncStoreMap implements Command {
         incr(key, 1);
     }
 
+    public void incr(String key, String field) {
+        incr(key + ":" + field, 1);
+    }
+
+
     public void clearStoreDB() {
         storeMap = new ConcurrentHashMap<String, Integer>();
     }
 
-    protected  void sync(Map<String, Integer> storeMap){}
+    protected void sync(Map<String, Integer> storeMap) {
+    }
 
     public void saftyClose() {
         //同步数据完成关闭

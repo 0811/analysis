@@ -10,10 +10,11 @@ import java.util.Map;
 /**
  * 去重累加map
  * 定时同步数据到mongodb
+ *
  * @author : Dempe
  * @version 1.0 date : 2014/10/17
  */
-public  class UniqueCountStoreMap extends TimeSyncStoreMap {
+public class UniqueCountStoreMap extends TimeSyncStoreMap {
 
     public static final Logger LOGGER = Logger.getLogger(UniqueCountStoreMap.class);
 

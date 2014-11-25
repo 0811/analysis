@@ -68,12 +68,11 @@ public class R {
     public final static String ERROR_DATA = "error_data";
 
 
-
     public final static String APPKEY = "appkey";
 
     public final static String CREATE_DATE = "create_date";
 
-//    "device_id": "50589a7dc52a2d0",
+    //    "device_id": "50589a7dc52a2d0",
 //    "appver": "1.0",
 //    "apppkg": " com.example.sharesdk_test",
 //    "platform_id": 1,
@@ -101,42 +100,30 @@ public class R {
     public final static String SYSVER = "sysver";
     public final static String CARRIER = "carrier";
     public final static String PLATFORM = "platform";
-
+    public final static String PROVINCE = "province";
 
 
     //***********************报表名称
 
-    public final static String usage_daily ="usage_daily";
-    public final static String usage_hourly ="usage_hourly";
-    public final static String usage_duration ="usage_duration";
-    public final static String usage_duration_daily ="usage_duration_daily";
-    public final static String usage_frequency ="usage_frequency";
-    public final static String usage_page_count ="usage_page_count";
-    public final static String retention_daily ="retention_daily";
-    public final static String retention_weekly ="retention_weekly";
-    public final static String retention_monthly ="retention_monthly";
-    public final static String device_model ="device_model";
-    public final static String usage_interval ="usage_interval";
-    public final static String device_resolution ="device_resolution";
-    public final static String device_os ="device_os";
-    public final static String device_network ="device_network";
-    public final static String device_country ="device_country";
-    public final static String device_province ="device_province";
-    public final static String device_carrier ="device_carrier";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public final static String USAGE_OVERRIDE = "usage_override";
+    public final static String USAGE_DAILY = "usage_daily";
+    public final static String USAGE_HOURLY = "usage_hourly";
+    public final static String USAGE_DURATION = "usage_duration";
+    public final static String USAGE_DURATION_DAILY = "usage_duration_daily";
+    public final static String USAGE_FREQUENCY = "usage_frequency";
+    public final static String USAGE_PAGE_COUNT = "usage_page_count";
+    public final static String RETENTION_DAILY = "retention_daily";
+    public final static String RETENTION_WEEKLY = "retention_weekly";
+    public final static String RETENTION_MONTHLY = "retention_monthly";
+    public final static String DEVICE_MODEL = "device_model";
+    public final static String USAGE_INTERVAL = "usage_interval";
+    public final static String DEVICE_RESOLUTION = "device_resolution";
+    public final static String DEVICE_OS = "device_os";
+    public final static String DEVICE_NETWORK = "device_network";
+    public final static String DEVICE_COUNTRY = "device_country";
+    public final static String DEVICE_PROVINCE = "device_province";
+    public final static String DEVICE_CARRIER = "device_carrier";
 
 
 }
