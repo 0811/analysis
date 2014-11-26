@@ -94,13 +94,15 @@ public class R {
 //    "manuid": "KOT49H",
 //    "manutime": "1386201442000"
     public final static String DEVICE_ID = "device_id";
-    public final static String APPVER = "device_id";
+    public final static String APPVER = "appver";
     public final static String CHANNEL = "chanel";
     public final static String MODEL = "model";
     public final static String SYSVER = "sysver";
     public final static String CARRIER = "carrier";
     public final static String PLATFORM = "platform";
     public final static String PROVINCE = "province";
+    public final static String COUNTRY = "country";
+    public final static String SCREENSIZE = "screensize";
 
 
     //***********************报表名称
@@ -124,6 +126,81 @@ public class R {
     public final static String DEVICE_COUNTRY = "device_country";
     public final static String DEVICE_PROVINCE = "device_province";
     public final static String DEVICE_CARRIER = "device_carrier";
+
+
+    public final static String ERROR_INFO = "error_info";
+
+
+    /****************************************
+     *
+     */
+    /**
+     * **********************launch data field**********************************************
+     */
+    public static final String LAUNCH_DATA_CREATE_DATE = "create_date";
+    public static final String LAUNCH_DATA_CREATE_HOUR = "create_hour"; // 辅助计算用
+    public static final String LAUNCH_DATA_LAST_END_DATE = "last_end_date";
+    public static final String LAUNCH_DATA_SESSION_ID = "session_id";
+
+    /**
+     * **********************exit data field***********************************************
+     */
+    public static final String EXIT_DATA_CREATE_DATE = "create_date";
+    public static final String EXIT_DATA_END_DATE = "end_date";
+    public static final String EXIT_DATA_SESSION_ID = "session_id";
+    public static final String EXIT_DATA_DURATION = "duration";
+
+
+    /**
+     * **********************page data field********************************************************
+     */
+    public static final String PAGE_DATA_SESSION_ID = "session_id";
+    public static final String PAGE_DATA_START_DATE = "start_date";
+    public static final String PAGE_DATA_END_DATE = "end_date";
+    public static final String PAGE_DATA_PAGE = "page";
+    public static final String PAGE_DATA_FROM_PAGE = "from_page";
+    public static final String PAGE_DATA_DURATION = "duration";
+    public static final String PAGE_DATA_CREATE_DATE = "create_date";
+    public static final String PAGE_DATA_NUM = "num";
+    public static final String PAGE_DATA_TOTAL_TIME = "total_time";
+    public static final String PAGE_DATA_EXIT_NUM = "exit_num";
+
+    /**
+     * *********************evnet data field******************************
+     */
+    public static final String EVENT_DATA_SESSION_ID = "session_id";
+    public static final String EVENT_DATA_CREATE_DATE = "create_date";
+    public static final String EVENT_DATA_EVENT_KEY = "eventkey";
+    public static final String EVENT_DATA_NOTICE_NUM = "notice_num";
+    public static final String EVENT_DATA_PAGE = "page";
+    public static final String EVENT_DATA_LABEL = "label";
+    public static final String EVENT_DATA_DURATION = "duration";
+    public static final String EVENT_DATA_RUN_NUM = "run_num";
+    public static final String EVENT_DATA_DEVICE_NUM = "device_num";
+
+    /**
+     * *********************kvevent data field**********************************
+     */
+    public static final String EVNETKV_DATA_SESSION_ID = "session_id";
+    public static final String EVNETKV_DATA_CREATE_DATE = "create_date";
+    public static final String EVNETKV_DATA_EVENT_KEY = "eventkey";
+    public static final String EVNETKV_DATA_PAGE = "page";
+    public static final String EVNETKV_DATA_LABEL = "label";
+    public static final String EVNETKV_DATA_DURATION = "duration";
+    public static final String EVNETKV_DATA_NOTICE_NUM = "notice_num";
+
+    /**
+     * **********************error data field********************************
+     */
+    public static final String ERROR_DATA_ERROR_LOG = "error_log";
+    public static final String ERROR_DATA_STACK_TRACE = "stack_trace";
+    public static final String ERROR_DATA_CREATE_DATE = "create_date";
+    public static final String ERROR_DATA_NUM = "num";
+
+
+    //****************************************************
+    public static final String RUN_NUM = "runNum";
+    public static final String NEW_NUM = "newNum";
 
 
 }

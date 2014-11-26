@@ -4,7 +4,7 @@ package com.dempe.analysis.core;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.dempe.analysis.core.store.CountStoreMap;
-import com.dempe.analysis.core.store.UniqueCountStoreMap;
+import com.dempe.analysis.core.store.bdb.BdbKeySet;
 import com.dempe.analysis.core.utils.DateUtil;
 
 /**
@@ -13,11 +13,11 @@ import com.dempe.analysis.core.utils.DateUtil;
  */
 public class MessageHandler {
 
-    private final static CountStoreMap countStoreMap = CountStoreMap.getInstance();
+    private final CountStoreMap countStoreMap = CountStoreMap.getInstance();
 
-    private final static UniqueCountStoreMap uniqueCountStoreMap = UniqueCountStoreMap.getInstance();
+    private final BdbKeySet bdbKeySet = BdbKeySet.getInstance();
 
-    public static void streaming(String message) {
+    public void streaming(String message) {
 
         JSONObject data = JSONObject.parseObject(message);
 
@@ -32,7 +32,6 @@ public class MessageHandler {
         JSONArray eventKVDatas = m.getJSONArray(R.EVENTKV_DATA);
 
 
-
         // 算启动数
 
         String deviceId = deviceData.getString(R.DEVICE_ID);
@@ -42,26 +41,52 @@ public class MessageHandler {
         String channel = deviceData.getString(R.CHANNEL);
 
         String carrier = deviceData.getString(R.CARRIER);
-        String country = deviceData.getString(R.DEVICE_COUNTRY);
+        String country = deviceData.getString(R.COUNTRY);
         String province = deviceData.getString(R.PROVINCE);
+        String os = deviceData.getString(R.SYSVER);
+        String screensize = deviceData.getString(R.SCREENSIZE);
         StringBuffer common_key = new StringBuffer(appkey).append(R.KEY_SPACE).append(platform)
                 .append(R.KEY_SPACE).append(version).append(R.KEY_SPACE).append(channel)
                 .append(R.KEY_SPACE);
         JSONObject launchData;
         String createDate;
+        String lastEndDate;
+        String cDate = null;
         StringBuffer common_date_key;
+        String launch_data_create_date;
 
         for (int i = 0, size = launchDatas.size(); i < size; i++) {
             launchData = launchDatas.getJSONObject(i);
-            createDate = DateUtil.format(launchData.getString(R.CREATE_DATE));
-            common_date_key = common_key.append(createDate);
-            countStoreMap.incr(new StringBuffer(R.USAGE_OVERRIDE).append(R.DOLLAR_SPLIT).append(appkey).append(R.KEY_SPACE).append(createDate).toString(),R.COUNT);
-            countStoreMap.incr(new StringBuffer(R.USAGE_DAILY).append(R.DOLLAR_SPLIT).append(common_date_key).toString(),R.COUNT);
-            countStoreMap.incr(new StringBuffer(R.DEVICE_COUNTRY).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(country).toString(),R.COUNT);
-            countStoreMap.incr(new StringBuffer(R.DEVICE_CARRIER).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(carrier).toString(),R.COUNT);
-            countStoreMap.incr(new StringBuffer(R.DEVICE_MODEL).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(model).toString(),R.COUNT);
-            countStoreMap.incr(new StringBuffer(R.DEVICE_PROVINCE).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(province).toString(),R.COUNT);
+            launch_data_create_date = launchData.getString(R.LAUNCH_DATA_CREATE_DATE);
+            createDate = DateUtil.format(launch_data_create_date);
+            lastEndDate = launchData.getString(R.LAUNCH_DATA_LAST_END_DATE);
 
+            common_date_key = common_key.append(createDate);
+            countStoreMap.incr(R.RUN_NUM, new StringBuffer(R.USAGE_OVERRIDE).append(R.DOLLAR_SPLIT).append(appkey).append(R.KEY_SPACE).append(createDate).toString());
+            countStoreMap.incr(R.RUN_NUM, new StringBuffer(R.USAGE_DAILY).append(R.DOLLAR_SPLIT).append(common_date_key).toString());
+            countStoreMap.incr(R.RUN_NUM, new StringBuffer(R.DEVICE_COUNTRY).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(country).toString());
+            countStoreMap.incr(R.RUN_NUM, new StringBuffer(R.DEVICE_CARRIER).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(carrier).toString());
+            countStoreMap.incr(R.RUN_NUM, new StringBuffer(R.DEVICE_MODEL).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(model).toString());
+            countStoreMap.incr(R.RUN_NUM, new StringBuffer(R.DEVICE_PROVINCE).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(province).toString());
+            countStoreMap.incr(R.RUN_NUM, new StringBuffer(R.DEVICE_OS).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(os).toString());
+            countStoreMap.incr(R.RUN_NUM, new StringBuffer(R.DEVICE_RESOLUTION).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(screensize).toString());
+
+            //analysis device create_date.
+            if (cDate == null || DateUtil.dateIsBefore(cDate, createDate)) {
+                cDate = createDate;
+            }
+
+
+            long dur = DateUtil.dateTimeDuration(launch_data_create_date, lastEndDate);
+            dur = dur / 1000 / 60 / 60;
+            String segment = DateUtil.getIntervalSegment(dur);
+            countStoreMap.incr(R.RUN_NUM, new StringBuffer(R.USAGE_INTERVAL).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(segment).toString());
+
+        }
+        if (bdbKeySet.exists(String.format("%s:%s%s", appkey, cDate, deviceId))) {
+            common_date_key = common_key.append(cDate);
+            countStoreMap.incr(R.NEW_NUM, new StringBuffer(R.USAGE_OVERRIDE).append(R.DOLLAR_SPLIT).append(appkey).append(R.KEY_SPACE).append(cDate).toString());
+            countStoreMap.incr(R.NEW_NUM, new StringBuffer(R.USAGE_DAILY).append(R.DOLLAR_SPLIT).append(common_date_key).toString());
         }
 
 

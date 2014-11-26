@@ -24,7 +24,7 @@ public class BdbKeySet {
 
     public static BdbKeySet getInstance() {
         if (instance == null) {
-            instance = new BdbKeySet("KEY_SET", "/data/analysis/keySet");
+            instance = new BdbKeySet("KEY_SET", "/data/analysis/keySet2");
         }
         return instance;
     }

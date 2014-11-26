@@ -6,6 +6,7 @@ package com.dempe.analysis.core.store.sync;
  */
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.dempe.analysis.core.Config;
 import com.dempe.analysis.core.FieldsMap;
 import com.dempe.analysis.core.R;
@@ -13,9 +14,7 @@ import com.mongodb.*;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
-import java.lang.reflect.Field;
 import java.net.UnknownHostException;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -53,15 +52,15 @@ public class MongoSyncDao implements SyncDao {
     }
 
     @Override
-    public void sync4Map(Map<String, Integer> storeMap) {
+    public void sync4Map(Map<String, JSONObject> storeMap) {
         LOGGER.info("sync map to mongodb now");
-        Iterator<Map.Entry<String, Integer>> keys = storeMap.entrySet().iterator();
+        Iterator<Map.Entry<String, JSONObject>> keys = storeMap.entrySet().iterator();
         String key = "";
         String colName;
         String fieldKey;
         String[] keyValues;
-        Integer value = 0;
-        Map.Entry<String, Integer> entry;
+        JSONObject json = null;
+        Map.Entry<String, JSONObject> entry;
         DBObject query;
         DBObject update;
         while (keys.hasNext()) {
@@ -69,31 +68,28 @@ public class MongoSyncDao implements SyncDao {
                 entry = keys.next();
                 key = entry.getKey();
                 colName = StringUtils.substringBefore(key, R.DOLLAR_SPLIT);
-                System.out.println(colName);
                 String[] fields = FieldsMap.getStringArray(colName);
                 fieldKey = StringUtils.substringAfter(key, R.DOLLAR_SPLIT);
-                if(fields==null||fieldKey==null){
+                if (fields == null || fieldKey == null) {
                     return;
                 }
 
                 keyValues = fieldKey.split(R.KEY_SPACE);
-                int length =fields.length;
-                if(length>=keyValues.length){
+                int length = fields.length;
+                if (length != keyValues.length) {
                     return;
                 }
                 query = new BasicDBObject("_id", fieldKey);
-                System.out.println("====>"+query);
-                for(int i= 0;i<length;i++){
-                    query.put(fields[i],keyValues[i]);
+                for (int i = 0; i < length; i++) {
+                    query.put(fields[i], keyValues[i]);
                 }
-                value = entry.getValue();
+                json = entry.getValue();
                 update = new BasicDBObject();
-                update.put(keyValues[length], value);
-                System.out.println(query);
+                update.putAll(json);
                 incrBy(colName, query, update);
             } catch (Exception e) {
                 e.printStackTrace();
-                LOGGER.error("sync error key-value:" + key + ":" + value);
+                LOGGER.error("sync error key-value:" + key + ":" + json);
             }
         }
     }

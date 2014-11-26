@@ -1,5 +1,6 @@
 package com.dempe.analysis.core.store;
 
+import com.alibaba.fastjson.JSONObject;
 import com.dempe.analysis.core.Config;
 import com.dempe.analysis.core.R;
 import org.apache.log4j.Logger;
@@ -19,11 +20,11 @@ public abstract class TimeSyncStoreMap implements Command {
 
     private final static String DEF_SLEEP_TIME = "5000";
 
-    protected static Map<String, Integer> storeMap = new ConcurrentHashMap<String, Integer>();
+    protected static Map<String, JSONObject> storeMap = new ConcurrentHashMap<String, JSONObject>();
 
     private Thread _syncer;
 
-    private Map<String, Integer> syncMap;
+    private Map<String, JSONObject> syncMap;
 
     public TimeSyncStoreMap() {
         final int sleepTime = Integer.parseInt(Config.getString(R.SLEEP_TIME, DEF_SLEEP_TIME));
@@ -48,26 +49,30 @@ public abstract class TimeSyncStoreMap implements Command {
     }
 
     @Override
-    public void incr(String key, int step) {
-        Integer value = storeMap.get(key);
-        storeMap.put(key, value == null ? step : step + value);
+    public void incr(String field, String key, int step) {
+        JSONObject jsonObject = storeMap.get(key);
+        if (jsonObject == null) {
+            jsonObject = new JSONObject();
+            jsonObject.put(field, step);
+        } else {
+            Integer value = jsonObject.getInteger(field);
+            jsonObject.put(field, value == null ? step : step + value);
+        }
+        storeMap.put(key, jsonObject);
+
+
     }
 
     @Override
-    public void incr(String key) {
-        incr(key, 1);
+    public void incr(String field, String key) {
+        incr(field, key, 1);
     }
-
-    public void incr(String key, String field) {
-        incr(key + R.KEY_SPACE + field, 1);
-    }
-
 
     public void clearStoreDB() {
-        storeMap = new ConcurrentHashMap<String, Integer>();
+        storeMap = new ConcurrentHashMap<String, JSONObject>();
     }
 
-    protected void sync(Map<String, Integer> storeMap) {
+    protected void sync(Map<String, JSONObject> storeMap) {
     }
 
     public void saftyClose() {

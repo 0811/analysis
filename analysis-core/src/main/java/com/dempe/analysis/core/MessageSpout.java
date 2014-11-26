@@ -23,18 +23,20 @@ public class MessageSpout implements Runnable {
         return blockingQueue.take();
     }
 
+    private MessageHandler messageHandler = new MessageHandler();
+
     @Override
     public void run() {
         while (true) {
             try {
                 String message = getMessage();
                 while (message == null) {
-                    LOGGER.debug("local queue is emtpy,thread sleep 1 s.");
+                    LOGGER.debug("local queue is empty, thread sleep 1 s.");
                     TimeUnit.SECONDS.sleep(1);
                     continue;
                 }
                 LOGGER.debug("[message]=" + message);
-                MessageHandler.streaming(message);
+                messageHandler.streaming(message);
             } catch (Exception e) {
                 e.printStackTrace();
                 LOGGER.error("handle message error:" + e);

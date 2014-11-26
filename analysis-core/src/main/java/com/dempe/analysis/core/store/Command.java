@@ -6,7 +6,7 @@ package com.dempe.analysis.core.store;
  */
 public interface Command {
 
-    void incr(String key, int step);
+    void incr(String field, String key, int step);
 
-    void incr(String key);
+    void incr(String field, String key);
 }

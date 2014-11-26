@@ -1,6 +1,7 @@
 package com.dempe.analysis.core.simulator;
 
 import com.alibaba.fastjson.JSONObject;
+import com.dempe.analysis.core.R;
 import org.apache.commons.codec.binary.Base64OutputStream;
 
 import java.io.ByteArrayOutputStream;
@@ -90,16 +91,16 @@ public class RandomClientMsgProducer {
 
 
         Map<String, String> deviceData = new HashMap<String, String>();
-        deviceData.put("device_id", device_id);
-        deviceData.put("appver", appver);
+        deviceData.put(R.DEVICE_ID, device_id);
+        deviceData.put(R.VERSION, appver);
         deviceData.put("apppkg", apppkg);
-        deviceData.put("platform_id", platform_id);
+        deviceData.put(R.PLATFORM, platform_id);
         deviceData.put("sdkver", sdkver);
-        deviceData.put("channel_name", channel_name);
+        deviceData.put(R.CHANNEL, channel_name);
         deviceData.put("mac", mac);
-        deviceData.put("model", model);
-        deviceData.put("sysver", sysver);
-        deviceData.put("carrier", carrier);
+        deviceData.put(R.MODEL, model);
+        deviceData.put(R.SYSVER, sysver);
+        deviceData.put(R.CARRIER, carrier);
         deviceData.put("screensize", screensize);
         deviceData.put("factory", factory);
         deviceData.put("networktype", networktype);
@@ -129,7 +130,7 @@ public class RandomClientMsgProducer {
             Map<String, String> launchMap = new HashMap<String, String>();
             launchMap.put("session_id", session_id);
             launchMap.put("last_end_date", last_end_date);
-            launchMap.put("create_date", create_date);
+            launchMap.put(R.CREATE_DATE, create_date);
             ld.add(launchMap);
 
             Map<String, String> exitMap = new HashMap<String, String>();

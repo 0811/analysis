@@ -1,5 +1,6 @@
 package com.dempe.analysis.core.store;
 
+import com.alibaba.fastjson.JSONObject;
 import com.dempe.analysis.core.store.sync.MongoSyncDao;
 import com.dempe.analysis.core.store.sync.SyncDao;
 import org.apache.log4j.Logger;
@@ -22,7 +23,7 @@ public class CountStoreMap extends TimeSyncStoreMap {
     }
 
     @Override
-    protected void sync(Map<String, Integer> storeMap) {
+    protected void sync(Map<String, JSONObject> storeMap) {
         LOGGER.debug("sync to mongodb start ...");
         syncDao.sync4Map(storeMap);
     }

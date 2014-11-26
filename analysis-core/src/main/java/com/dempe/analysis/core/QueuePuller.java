@@ -8,7 +8,6 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 
-
 public class QueuePuller implements Runnable {
     private final static Logger LOGGER = Logger.getLogger(QueuePuller.class);
 
@@ -32,7 +31,8 @@ public class QueuePuller implements Runnable {
                     TimeUnit.SECONDS.sleep(1);
                     continue;
                 }
-                //LOGGER.debug("[data] = "+data);
+                TimeUnit.SECONDS.sleep(1);
+                LOGGER.debug("[data] = " + data);
                 blockingQueue.put(data);
                 //localQueue.add(data);
             }

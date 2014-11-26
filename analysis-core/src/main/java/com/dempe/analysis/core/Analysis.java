@@ -11,10 +11,9 @@ public class Analysis {
 
 
         AnalysisBuilder builder = new AnalysisBuilder()
-                .setTaskNum(8)
+                .setTaskNum(4)
                 .setCloseOnJvmShutdown(true)
-                .setSyncThreadSleepTime(5000)
-                .setQueueDataDir("/data/analystics");
+                .setSyncThreadSleepTime(5000);
 
         final AnalysisContext context = new AnalysisContext(builder);
         context.start();
