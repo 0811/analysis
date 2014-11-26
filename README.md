@@ -1,2 +1,2 @@
-analysis-web
+analysis
 ============
