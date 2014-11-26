@@ -9,7 +9,6 @@ public class Analysis {
 
     public static void main(String args[]) {
 
-
         AnalysisBuilder builder = new AnalysisBuilder()
                 .setTaskNum(4)
                 .setCloseOnJvmShutdown(true)
