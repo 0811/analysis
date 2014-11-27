@@ -197,7 +197,7 @@ public class RandomClientMsgProducer {
         jo.put("error_data", errd);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("appkey", testkeys[new Random().nextInt(testkeys.length)]);
-        jsonObject.put("m", jo);
+        jsonObject.put("m", gizpBase64(jo.toString()));
         //System.out.println(jo.toString());
 
         return jsonObject.toJSONString();

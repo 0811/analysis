@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.dempe.analysis.core.store.CountStoreMap;
 import com.dempe.analysis.core.store.bdb.BdbKeySet;
 import com.dempe.analysis.core.utils.DateUtil;
+import com.dempe.analysis.core.utils.ZipUtil;
 
 /**
  * @author : Dempe
@@ -22,7 +23,10 @@ public class MessageHandler {
         JSONObject data = JSONObject.parseObject(message);
 
         String appkey = data.getString(R.APPKEY);
-        JSONObject m = data.getJSONObject("m");
+        String zipMessage = data.getString("m");
+
+        //解压
+        JSONObject m = JSONObject.parseObject(ZipUtil.gunzip(zipMessage));
 
         JSONObject deviceData = m.getJSONObject(R.DEVICE_DATA);
         JSONArray launchDatas = m.getJSONArray(R.LAUNCH_DATA);
