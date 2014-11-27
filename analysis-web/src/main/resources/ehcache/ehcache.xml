@@ -1,6 +1,6 @@
 <ehcache updateCheck="false" name="defaultCache">
 
-   <defaultCache
+    <defaultCache
             maxElementsInMemory="10000"
             eternal="false"
             timeToIdleSeconds="120"

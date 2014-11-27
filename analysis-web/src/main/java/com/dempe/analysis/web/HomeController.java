@@ -11,12 +11,13 @@ public class HomeController {
 
 
     @RequestMapping("index")
-    public String home(){
+    public String home() {
         System.out.println("----------home controller-----------");
         return "index";
     }
+
     @RequestMapping("/main")
-    public String main(){
+    public String main() {
         System.out.println("----------main controller-----------");
         return "index";
     }
