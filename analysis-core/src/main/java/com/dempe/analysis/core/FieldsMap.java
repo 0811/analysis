@@ -15,32 +15,19 @@ public class FieldsMap {
     private static PropertiesConfiguration conf;
 
     static {
-        initProp();
-    }
-
-    public static void initProp() {
         try {
             conf = new PropertiesConfiguration("report.properties");
         } catch (ConfigurationException e) {
-
             LOGGER.error(e);
         }
     }
 
-
     public static String getString(String key) {
-
         return conf.getString(key);
     }
 
     public static String[] getStringArray(String key) {
-
         return conf.getStringArray(key);
     }
-
-    public static String getString(String key, String defaultValue) {
-        return conf.getString(key);
-    }
-
 
 }

@@ -10,6 +10,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.dempe.analysis.core.Config;
 import com.dempe.analysis.core.FieldsMap;
 import com.dempe.analysis.core.R;
+import com.dempe.analysis.core.utils.MD5;
 import com.mongodb.*;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -79,7 +80,7 @@ public class MongoSyncDao implements SyncDao {
                 if (length != keyValues.length) {
                     return;
                 }
-                query = new BasicDBObject("_id", fieldKey);
+                query = new BasicDBObject("_id", MD5.hash(fieldKey));
                 for (int i = 0; i < length; i++) {
                     query.put(fields[i], keyValues[i]);
                 }
