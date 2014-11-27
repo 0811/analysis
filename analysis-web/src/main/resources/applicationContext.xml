@@ -6,6 +6,29 @@
 
                         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
+
+    <!-- 数据库实例 -->
+    <bean id="mongo" class="com.mongodb.MongoClient">
+        <constructor-arg name="host" value="120.24.211.40"/>
+        <constructor-arg name="port" value="27000"/>
+    </bean>
+
+
+    <!-- morphia实例 -->
+    <bean id="morphia" class="org.mongodb.morphia.Morphia"/>
+
+    <!-- 库名称 -->
+    <bean id="dbName" class="java.lang.String">
+        <constructor-arg index="0" value="ANALYSIS"/>
+    </bean>
+
+    <!-- datastore实例 -->
+    <bean id="dataStore" class="org.mongodb.morphia.DatastoreImpl">
+        <constructor-arg name="morphia" ref="morphia"/>
+        <constructor-arg name="mongoClient" ref="mongo"/>
+        <constructor-arg name="dbName" ref="dbName"/>
+    </bean>
+
     <!-- 使用零配置管理依赖注入 -->
     <context:annotation-config/>
     <!-- 主动搜索以下目录 -->
@@ -13,9 +36,6 @@
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
           p:defaultEncoding="utf-8"/>
-
-
-    <import resource="mongodb.xml"/>
 
 
 </beans>
