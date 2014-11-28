@@ -98,8 +98,9 @@ public class MessageHandler {
                     countStoreMap.incr(R.NEW_NUM, new StringBuffer(R.DEVICE_PROVINCE).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(province).toString());
                     countStoreMap.incr(R.NEW_NUM, new StringBuffer(R.DEVICE_OS).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(os).toString());
                     countStoreMap.incr(R.NEW_NUM, new StringBuffer(R.DEVICE_RESOLUTION).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(screensize).toString());
-                } else {
                     deviceDB.set(appkey + R.KEY_SPACE + deviceId, createDate);
+                } else {
+
                     //计算留存用户
                     if (!StringUtils.equals(createAt, createDate)) {
                         countStoreMap.incr(DateUtil.getDayRetention(createAt, createDate), new StringBuffer(R.RETENTION_DAILY).append(R.DOLLAR_SPLIT).append(common_date_key).toString());

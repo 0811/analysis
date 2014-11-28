@@ -40,7 +40,7 @@ public class RandDateUtil {
     }
 
     public static Date getRandomDate() {
-        return randomDate("2014-07-22", "2014-07-24");
+        return randomDate("2014-07-10", "2014-07-24");
     }
 
     public static void main(String[] args) {

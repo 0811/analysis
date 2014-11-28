@@ -31,7 +31,7 @@ public class QueuePuller implements Runnable {
                     TimeUnit.SECONDS.sleep(1);
                     continue;
                 }
-                TimeUnit.SECONDS.sleep(1);
+                //TimeUnit.SECONDS.sleep(1);
                 LOGGER.debug("[data] = " + data);
                 blockingQueue.put(data);
                 //localQueue.add(data);
