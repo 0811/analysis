@@ -201,6 +201,7 @@ public class R {
     //****************************************************
     public static final String RUN_NUM = "runNum";
     public static final String NEW_NUM = "newNum";
+    public static final String ACTIVE_NUM = "activeNum";
 
 
 }

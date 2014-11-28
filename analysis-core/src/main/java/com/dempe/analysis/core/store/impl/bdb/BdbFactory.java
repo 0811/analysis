@@ -1,10 +1,8 @@
-package com.dempe.analysis.core.store.bdb;
+package com.dempe.analysis.core.store.impl.bdb;
 
 import com.dempe.analysis.core.Config;
-import com.dempe.analysis.core.utils.MD5;
 import com.sleepycat.bind.tuple.StringBinding;
 import com.sleepycat.collections.StoredKeySet;
-import com.sleepycat.collections.StoredMap;
 import com.sleepycat.je.*;
 import org.apache.log4j.Logger;
 
@@ -14,19 +12,16 @@ import java.io.File;
  * @author : Dempe
  * @version 1.0 date : 2014/11/26
  */
-public class DeviceDB {
+public class BdbFactory {
 
     private static Logger LOGGER = Logger.getLogger(BdbKeySet.class);
 
-    public static DeviceDB instance;
+    public static BdbKeySet instance;
 
-    private DeviceDB() {
 
-    }
-
-    public static DeviceDB getInstance() {
+    public static BdbKeySet getInstance() {
         if (instance == null) {
-            instance = new DeviceDB("KEY_SET", "/data/analysis/deviceSet");
+            instance = new BdbKeySet("KEY_SET", "/data/analysis/keySet");
         }
         return instance;
     }
@@ -35,20 +30,20 @@ public class DeviceDB {
 
     Database storedb;
 
-    StoredMap<String, String> storedMap;
+    StoredKeySet<String> storedKeySet;
 
     String dbname;
 
     String dbpath;
 
 
-    public DeviceDB(String dbname, String dbpath) {
+    public BdbFactory(String dbname, String dbpath) {
         this.dbname = dbname;
         this.dbpath = dbpath;
         String dayDbPath = dbpath;
         setUpEnv(dayDbPath);
         openDb(dbname);
-        storedMap = new StoredMap(storedb, new StringBinding(), new StringBinding(), true);
+        storedKeySet = new StoredKeySet<String>(storedb, new StringBinding(), true);
     }
 
 
@@ -89,7 +84,7 @@ public class DeviceDB {
                 env.close();
             }
         } finally {
-            storedMap = null;
+            storedKeySet = null;
             storedb = null;
             env = null;
 
@@ -110,12 +105,17 @@ public class DeviceDB {
     }
 
 
-   public void set(String key,String value){
-       storedMap.put(MD5.hash(key),value);
-   }
-
-    public String get(String key){
-        return storedMap.get(MD5.hash(key));
+    public boolean exists(String key) {
+        return storedKeySet.contains(key);
     }
 
+    public void add(String key) {
+        storedKeySet.add(key);
+    }
+
+    public static StoredKeySet<String> getKeySet() {
+
+        return null;
+
+    }
 }

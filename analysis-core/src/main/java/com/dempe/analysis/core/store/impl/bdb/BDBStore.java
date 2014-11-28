@@ -1,4 +1,4 @@
-package com.dempe.analysis.core.store.bdb;
+package com.dempe.analysis.core.store.impl.bdb;
 
 import com.dempe.analysis.core.Config;
 import com.sleepycat.bind.tuple.StringBinding;
@@ -9,22 +9,22 @@ import org.apache.log4j.Logger;
 import java.io.File;
 
 /**
- * TODO
- * Created by dempe on 14-10-17.
+ * @author : Dempe
+ * @version 1.0 date : 2014/11/26
  */
-public class BdbKeySet {
+public class BDBStore {
 
     private static Logger LOGGER = Logger.getLogger(BdbKeySet.class);
 
     public static BdbKeySet instance;
 
-    private BdbKeySet() {
+    private BDBStore() {
 
     }
 
     public static BdbKeySet getInstance() {
         if (instance == null) {
-            instance = new BdbKeySet("KEY_SET", "/data/analysis/keySet2");
+            instance = new BdbKeySet("KEY_SET", "/data/analysis/keySet");
         }
         return instance;
     }
@@ -33,20 +33,20 @@ public class BdbKeySet {
 
     Database storedb;
 
-    StoredKeySet<String> storedKeySet;
+    StoredKeySet<String> deviceSet;
 
     String dbname;
 
     String dbpath;
 
 
-    public BdbKeySet(String dbname, String dbpath) {
+    public BDBStore(String dbname, String dbpath) {
         this.dbname = dbname;
         this.dbpath = dbpath;
         String dayDbPath = dbpath;
         setUpEnv(dayDbPath);
         openDb(dbname);
-        storedKeySet = new StoredKeySet<String>(storedb, new StringBinding(), true);
+        deviceSet = new StoredKeySet<String>(storedb, new StringBinding(), true);
     }
 
 
@@ -87,7 +87,7 @@ public class BdbKeySet {
                 env.close();
             }
         } finally {
-            storedKeySet = null;
+            deviceSet = null;
             storedb = null;
             env = null;
 
@@ -109,11 +109,11 @@ public class BdbKeySet {
 
 
     public boolean exists(String key) {
-        return storedKeySet.contains(key);
+        return deviceSet.contains(key);
     }
 
     public void add(String key) {
-        storedKeySet.add(key);
+        deviceSet.add(key);
     }
 
 

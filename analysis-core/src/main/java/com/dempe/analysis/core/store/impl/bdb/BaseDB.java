@@ -1,4 +1,4 @@
-package com.dempe.analysis.core.store.bdb;
+package com.dempe.analysis.core.store.impl.bdb;
 
 
 import com.dempe.analysis.core.Config;

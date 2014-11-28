@@ -250,4 +250,35 @@ public class DateUtil {
     }
 
 
+    /**
+     * TODO
+     * @param createAt
+     * @param updateAt
+     * @return
+     */
+    public static String getDayRetention(String createAt, String updateAt) {
+        return "0-1";
+    }
+
+    /**
+     * TODO
+     * @param createAt
+     * @param updateAt
+     * @return
+     */
+    public static String getWeekRetention(String createAt, String updateAt) {
+        return "0-1";
+    }
+
+    /**
+     * TODO
+     * @param createAt
+     * @param updateAt
+     * @return
+     */
+    public static String getMonthRetention(String createAt, String updateAt) {
+        return "0-1";
+    }
+
+
 }
