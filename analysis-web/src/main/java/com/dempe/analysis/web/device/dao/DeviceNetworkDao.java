@@ -1,6 +1,7 @@
 package com.dempe.analysis.web.device.dao;
 
 import com.dempe.analysis.web.device.model.DeviceCountry;
+import com.dempe.analysis.web.device.model.DeviceNetwork;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.dao.BasicDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.io.Serializable;
  * Created by Administrator on 2014/11/29.
  */
 @Repository
-public class DeviceNetworkDao  extends BasicDAO<DeviceCountry, Serializable> {
+public class DeviceNetworkDao  extends BasicDAO<DeviceNetwork, Serializable> {
 
     @Autowired
     protected DeviceNetworkDao(Datastore dataStore) {
