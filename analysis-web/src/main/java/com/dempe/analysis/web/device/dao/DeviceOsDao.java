@@ -1,6 +1,5 @@
 package com.dempe.analysis.web.device.dao;
 
-import com.dempe.analysis.web.device.model.DeviceCountry;
 import com.dempe.analysis.web.device.model.DeviceOs;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.dao.BasicDAO;
@@ -13,7 +12,7 @@ import java.io.Serializable;
  * Created by Administrator on 2014/11/29.
  */
 @Repository
-public class DeviceOsDao  extends BasicDAO<DeviceOs, Serializable> {
+public class DeviceOsDao extends BasicDAO<DeviceOs, Serializable> {
 
     @Autowired
     protected DeviceOsDao(Datastore dataStore) {

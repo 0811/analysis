@@ -29,7 +29,7 @@ public class DeviceCountryController {
 
     @RequestMapping(value = "/appkey/{startDate}/to/{endDate}")
     @ResponseBody
-    public List<DeviceCountry> findByAppkey(@PathVariable String appkey,@PathVariable String startDate,@PathVariable String endDate){
+    public List<DeviceCountry> findByAppkey(@PathVariable String appkey, @PathVariable String startDate, @PathVariable String endDate) {
         return deviceCountryDao.find(deviceCountryDao.createQuery().field("appkey").equal(appkey).field("create_date").
                 greaterThan(startDate).field("create_date").lessThan(endDate)).asList();
     }

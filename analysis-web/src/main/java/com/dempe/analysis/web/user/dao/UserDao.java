@@ -1,6 +1,5 @@
 package com.dempe.analysis.web.user.dao;
 
-import com.dempe.analysis.web.device.model.DeviceCountry;
 import com.dempe.analysis.web.user.model.User;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.dao.BasicDAO;

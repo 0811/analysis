@@ -20,14 +20,14 @@ public class UserController {
     @RequestMapping("/login/{name}/{password}")
     public String login(@PathVariable String name, @PathVariable String password) {
         User user = userDao.findOne(userDao.createQuery().field("name").equal(name).field("password").equal(password));
-       if(user==null){
-           return "error";
-       }
+        if (user == null) {
+            return "error";
+        }
         return "dashboard";
     }
 
     @RequestMapping("/register/{name}/{password}")
-    public String register(@PathVariable String name, @PathVariable String password){
+    public String register(@PathVariable String name, @PathVariable String password) {
         User user = new User();
         user.setName(name);
         user.setPassword(password);

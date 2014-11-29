@@ -8,6 +8,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/deviceResolution")
-public class DeviceResolutionController
-{
+public class DeviceResolutionController {
 }
