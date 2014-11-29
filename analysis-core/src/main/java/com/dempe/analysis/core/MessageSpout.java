@@ -1,5 +1,6 @@
 package com.dempe.analysis.core;
 
+import com.dempe.analysis.core.handle.MessageHandler;
 import org.apache.log4j.Logger;
 
 import java.util.concurrent.BlockingQueue;
