@@ -225,7 +225,6 @@
                     <div class="text-muted bootstrap-admin-box-title">时段分析</div>
                 </div>
                 <div class="bootstrap-admin-panel-content">
-
                     <div id="chartDemo" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
                 </div>
             </div>
