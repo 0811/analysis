@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 /**
  * Created by Administrator on 2014/11/23.
  */
-@Controller
+@Controller("/user")
 public class UserController {
 
     @Resource

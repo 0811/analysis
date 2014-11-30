@@ -1,6 +1,6 @@
 package com.dempe.analysis.web.usage.dao;
 
-import com.dempe.analysis.web.device.model.DeviceCountry;
+import com.dempe.analysis.web.usage.model.UsageOverride;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.dao.BasicDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.io.Serializable;
  * Created by Administrator on 2014/11/27.
  */
 @Repository
-public class UsageOverrideDao extends BasicDAO<DeviceCountry, Serializable> {
+public class UsageOverrideDao extends BasicDAO<UsageOverride, Serializable> {
 
     @Autowired
     protected UsageOverrideDao(Datastore dataStore) {

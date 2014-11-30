@@ -1,6 +1,5 @@
 package com.dempe.analysis.web.retention.dao;
 
-import com.dempe.analysis.web.retention.model.RetentionDaily;
 import com.dempe.analysis.web.retention.model.RetentionMonthly;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.dao.BasicDAO;
