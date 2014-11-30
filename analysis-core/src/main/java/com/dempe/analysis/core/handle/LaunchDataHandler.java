@@ -47,7 +47,7 @@ public class LaunchDataHandler {
 
             common_date_key = common_key.append(createDate);
             //启动次数
-            countStoreMap.incr(R.RUN_NUM, new StringBuffer(R.USAGE_OVERRIDE).append(R.DOLLAR_SPLIT).append(appKey).append(R.KEY_SPACE).append(createDate).toString());
+            countStoreMap.incr(R.RUN_NUM, new StringBuffer(R.USAGE_OVERRIDE).append(R.DOLLAR_SPLIT).append(appKey).append(R.KEY_SPACE).append(platform).append(R.KEY_SPACE).append(createDate).toString());
             countStoreMap.incr(R.RUN_NUM, new StringBuffer(R.USAGE_DAILY).append(R.DOLLAR_SPLIT).append(common_date_key).toString());
             countStoreMap.incr(R.RUN_NUM, new StringBuffer(R.DEVICE_COUNTRY).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(country).toString());
             countStoreMap.incr(R.RUN_NUM, new StringBuffer(R.DEVICE_CARRIER).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(carrier).toString());
@@ -59,7 +59,7 @@ public class LaunchDataHandler {
             //活跃用户
             String activeKey = new StringBuffer(createDate).append(appKey).append(deviceId).toString();
             if (!activeSet.exist(activeKey)) {
-                countStoreMap.incr(R.ACTIVE_NUM, new StringBuffer(R.USAGE_OVERRIDE).append(R.DOLLAR_SPLIT).append(appKey).append(R.KEY_SPACE).append(createDate).toString());
+                countStoreMap.incr(R.ACTIVE_NUM, new StringBuffer(R.USAGE_OVERRIDE).append(R.DOLLAR_SPLIT).append(appKey).append(R.KEY_SPACE).append(platform).append(R.KEY_SPACE).append(createDate).toString());
                 countStoreMap.incr(R.ACTIVE_NUM, new StringBuffer(R.USAGE_DAILY).append(R.DOLLAR_SPLIT).append(common_date_key).toString());
                 activeSet.add(activeKey);
 
@@ -68,7 +68,7 @@ public class LaunchDataHandler {
                 String createAt = deviceDB.get(appKey + R.KEY_SPACE + deviceId);
                 if (createAt == null) {
                     common_date_key = common_key.append(createDate);
-                    countStoreMap.incr(R.NEW_NUM, new StringBuffer(R.USAGE_OVERRIDE).append(R.DOLLAR_SPLIT).append(appKey).append(R.KEY_SPACE).append(createDate).toString());
+                    countStoreMap.incr(R.NEW_NUM, new StringBuffer(R.USAGE_OVERRIDE).append(R.DOLLAR_SPLIT).append(appKey).append(R.KEY_SPACE).append(platform).append(R.KEY_SPACE).append(createDate).toString());
                     countStoreMap.incr(R.NEW_NUM, new StringBuffer(R.USAGE_DAILY).append(R.DOLLAR_SPLIT).append(common_date_key).toString());
                     countStoreMap.incr(R.NEW_NUM, new StringBuffer(R.DEVICE_COUNTRY).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(country).toString());
                     countStoreMap.incr(R.NEW_NUM, new StringBuffer(R.DEVICE_CARRIER).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(carrier).toString());

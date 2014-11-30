@@ -23,7 +23,7 @@ public class MessageHandler {
 
         JSONObject data = JSONObject.parseObject(message);
 
-        String appkey = data.getString(R.APPKEY);
+        String appKey = data.getString(R.APPKEY);
         String zipMessage = data.getString("m");
 
         //解压
@@ -49,7 +49,7 @@ public class MessageHandler {
         String os = deviceData.getString(R.SYSVER);
         String screensize = deviceData.getString(R.SCREENSIZE);
 
-        launchDataHandler.handle(appkey, version, platform, channel, deviceId, country, model, os, carrier, screensize, province, launchDatas);
+        launchDataHandler.handle(appKey, version, platform, channel, deviceId, country, model, os, carrier, screensize, province, launchDatas);
 
 
     }
