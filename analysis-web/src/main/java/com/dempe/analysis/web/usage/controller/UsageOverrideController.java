@@ -22,11 +22,20 @@ public class UsageOverrideController {
     @Resource
     private UsageOverrideDao usageOverrideDao;
 
-    @RequestMapping("/getTodayUsageOverride")
+    @RequestMapping("/getTodayUsageOverride/{appkey}/{platform}")
     private String getTodayUsageOverride(@PathVariable String appkey, @PathVariable String platform,Model model) {
-        List<UsageOverride> usageOverrides = usageOverrideDao.find(usageOverrideDao.createQuery().field("appkey").equal(appkey).field("platform").
-                equal(platform).field("create_date").equal(DateUtils.today())).asList();
-        model.addAttribute("usageOverrides",usageOverrides);
-        return "usageOverride";
+        UsageOverride today_usageOverride = usageOverrideDao.findByAppkeyAndPlatformAndCreateDate(appkey,platform,"20140723");
+        UsageOverride yest_usageOverride =  usageOverrideDao.findByAppkeyAndPlatformAndCreateDate(appkey, platform, DateUtils.today());
+
+        if(today_usageOverride==null){
+            today_usageOverride = new UsageOverride();
+        }
+        if(yest_usageOverride ==null){
+            yest_usageOverride =  new UsageOverride();
+        }
+
+        model.addAttribute("today_usageOverride",today_usageOverride);
+        model.addAttribute("yest_usageOverride",yest_usageOverride);
+        return "dashboard";
     }
 }

@@ -37,6 +37,6 @@
     </interceptors>
 
     <!-- 定义无Controller的path<->view直接映射 -->
-    <mvc:view-controller path="/" view-name="redirect:/index"/>
+    <mvc:view-controller path="/" view-name="redirect:/usageOverride/getTodayUsageOverride/ca2bbd6a539ae3a33c5f2832f8baa4ac/1/"/>
 
 </beans:beans>
