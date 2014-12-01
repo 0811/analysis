@@ -14,9 +14,16 @@ public class UsageHourly {
 
     private String appkey;
 
+    private String platform;
+
     private String version;
 
     private String channel;
+
+    private String create_date;
+
+
+    private String create_hour;
 
     private Integer runNum;
 
@@ -69,5 +76,30 @@ public class UsageHourly {
 
     public void setNewNum(Integer newNum) {
         this.newNum = newNum;
+    }
+
+
+    public String getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(String platform) {
+        this.platform = platform;
+    }
+
+    public String getCreate_date() {
+        return create_date;
+    }
+
+    public void setCreate_date(String create_date) {
+        this.create_date = create_date;
+    }
+
+    public String getCreate_hour() {
+        return create_hour;
+    }
+
+    public void setCreate_hour(String create_hour) {
+        this.create_hour = create_hour;
     }
 }
