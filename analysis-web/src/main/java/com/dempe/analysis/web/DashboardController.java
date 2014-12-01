@@ -1,7 +1,6 @@
 package com.dempe.analysis.web;
 
 import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.dempe.analysis.web.usage.dao.UsageHourlyDao;
 import com.dempe.analysis.web.usage.dao.UsageOverrideDao;
 import com.dempe.analysis.web.usage.model.UsageHourly;
@@ -30,7 +29,7 @@ public class DashboardController {
 
     private final static String APPKEY="ca2bbd6a539ae3a33c5f2832f8baa4ac";
     private final static String PLATFORM="1";
-    private final static String CREATE_DATE="1";
+    private final static String CREATE_DATE="20140722";
 
 
 
@@ -98,10 +97,13 @@ public class DashboardController {
         List<UsageHourly> usageHourlies = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, CREATE_DATE);
         JSONArray jsonArray = new JSONArray();
         for(UsageHourly usageHourly : usageHourlies){
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put(usageHourly.getCreate_date(),usageHourly.getRunNum());
-            jsonArray.add(jsonObject);
+            JSONArray ja = new JSONArray();
+            ja.add(usageHourly.getCreate_hour());
+            ja.add(usageHourly.getRunNum());
+
+            jsonArray.add(ja);
         }
+
         return jsonArray.toJSONString();
     }
 }
