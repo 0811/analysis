@@ -56,37 +56,14 @@ public class DashboardController {
     @ResponseBody
     @RequestMapping("/newNumHourly.json")
     public String getNewNumHourly(){
+        List<UsageHourly> usageHourlies = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, CREATE_DATE);
         JSONArray jsonArray = new JSONArray();
-
-        JSONArray ja = new JSONArray();
-        ja.add(1);
-        ja.add(12);
-        jsonArray.add(ja);
-
-
-
-       ja = new JSONArray();
-        ja.add(2);
-        ja.add(13);
-        jsonArray.add(ja);
-
-
-        ja = new JSONArray();
-        ja.add(3);
-        ja.add(14);
-        jsonArray.add(ja);
-
-
-        ja = new JSONArray();
-        ja.add(4);
-        ja.add(15);
-        jsonArray.add(ja);
-
-        ja = new JSONArray();
-        ja.add(5);
-        ja.add(16);
-        jsonArray.add(ja);
-
+        for(UsageHourly usageHourly : usageHourlies){
+            JSONArray ja = new JSONArray();
+            ja.add(usageHourly.getCreate_hour());
+            ja.add(usageHourly.getNewNum());
+            jsonArray.add(ja);
+        }
 
         return jsonArray.toJSONString();
     }
@@ -100,7 +77,6 @@ public class DashboardController {
             JSONArray ja = new JSONArray();
             ja.add(usageHourly.getCreate_hour());
             ja.add(usageHourly.getRunNum());
-
             jsonArray.add(ja);
         }
 

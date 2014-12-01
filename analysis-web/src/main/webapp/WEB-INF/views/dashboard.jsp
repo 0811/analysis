@@ -81,7 +81,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="about.html">Admin Panel</a>
+                    <a class="navbar-brand" href="about.html">统计分析</a>
                 </div>
                 <div class="collapse navbar-collapse main-navbar-collapse">
                     <ul class="nav navbar-nav">
@@ -115,53 +115,33 @@
 <!-- left, vertical navbar -->
 <div class="col-md-2 bootstrap-admin-col-left">
     <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
-        <li>
-            <a href="about.html"><i class="glyphicon glyphicon-chevron-right"></i> about</a>
-        </li>
+
         <li class="active">
             <a href="dashboard.html"><i class="glyphicon glyphicon-chevron-right"></i> 概况</a>
         </li>
-        <li class="disabled">
-            <a href="#"><i class="glyphicon glyphicon-chevron-right"></i> Calendar</a><!-- calendar.html -->
+        <li >
+            <a href="#"><i class="glyphicon glyphicon-chevron-right"></i> 应用趋势</a>
         </li>
-        <li class="disabled">
-            <a href="#"><i class="glyphicon glyphicon-chevron-right"></i> Statistics (Charts)</a><!-- stats.html -->
-        </li>
-        <li>
-            <a href="forms.html"><i class="glyphicon glyphicon-chevron-right"></i> Forms</a>
+        <li >
+            <a href="#"><i class="glyphicon glyphicon-chevron-right"></i> 留存用户分析</a>
         </li>
         <li>
-            <a href="tables.html"><i class="glyphicon glyphicon-chevron-right"></i> Tables</a>
+            <a href="forms.html"><i class="glyphicon glyphicon-chevron-right"></i>渠道分析</a>
         </li>
         <li>
-            <a href="buttons-and-icons.html"><i class="glyphicon glyphicon-chevron-right"></i> Buttons &amp; Icons</a>
+            <a href="tables.html"><i class="glyphicon glyphicon-chevron-right"></i>用户参与度</a>
         </li>
         <li>
-            <a href="wysiwyg-editors.html"><i class="glyphicon glyphicon-chevron-right"></i> WYSIWYG Editors</a>
+            <a href="buttons-and-icons.html"><i class="glyphicon glyphicon-chevron-right"></i> 终端属性</a>
+        </li>
+        <li>
+            <a href="wysiwyg-editors.html"><i class="glyphicon glyphicon-chevron-right"></i> 错误分析</a>
         </li>
         <li>
             <a href="ui-and-interface.html"><i class="glyphicon glyphicon-chevron-right"></i> UI &amp; Interface</a>
         </li>
         <li>
             <a href="error-pages.html"><i class="glyphicon glyphicon-chevron-right"></i> Error pages</a>
-        </li>
-        <li>
-            <a href="#"><span class="badge pull-right">731</span> Orders</a>
-        </li>
-        <li>
-            <a href="#"><span class="badge pull-right">812</span> Invoices</a>
-        </li>
-        <li>
-            <a href="#"><span class="badge pull-right">27</span> Clients</a>
-        </li>
-        <li>
-            <a href="#"><span class="badge pull-right">1,234</span> Users</a>
-        </li>
-        <li>
-            <a href="#"><span class="badge pull-right">2,221</span> Messages</a>
-        </li>
-        <li>
-            <a href="#"><span class="badge pull-right">11</span> Reports</a>
         </li>
         <li>
             <a href="#"><span class="badge pull-right">83</span> Errors</a>
