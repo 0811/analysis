@@ -43,6 +43,7 @@ public class LaunchDataHandler {
             launchData = launchDatas.getJSONObject(i);
             launch_data_create_date = launchData.getString(R.LAUNCH_DATA_CREATE_DATE);
             createDate = DateUtil.format(launch_data_create_date);
+            String hour = DateUtil.format(launch_data_create_date, "HH");
             lastEndDate = launchData.getString(R.LAUNCH_DATA_LAST_END_DATE);
 
             common_date_key = common_key.append(createDate);
@@ -56,6 +57,9 @@ public class LaunchDataHandler {
             countStoreMap.incr(R.RUN_NUM, new StringBuffer(R.DEVICE_OS).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(os).toString());
             countStoreMap.incr(R.RUN_NUM, new StringBuffer(R.DEVICE_RESOLUTION).append(R.DOLLAR_SPLIT).append(common_date_key).append(R.KEY_SPACE).append(screensize).toString());
 
+            //
+            countStoreMap.incr(R.RUN_NUM,new StringBuffer(R.USAGE_HOURLY).append(R.DOLLAR_SPLIT).append(appKey).append(R.KEY_SPACE)
+                    .append(platform).append(R.KEY_SPACE).append(createDate).append(R.KEY_SPACE).append(hour).toString());
             //活跃用户
             String activeKey = new StringBuffer(createDate).append(appKey).append(deviceId).toString();
             if (!activeSet.exist(activeKey)) {
