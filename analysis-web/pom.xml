@@ -5,7 +5,7 @@
     <artifactId>analysis</artifactId>
     <packaging>war</packaging>
     <version>1.0.0</version>
-    <name>analysis-web Maven Webapp</name>
+    <name>analysis</name>
     <url>http://maven.apache.org</url>
 
 
@@ -300,7 +300,7 @@
     </dependencies>
 
     <build>
-        <finalName>analysis-web</finalName>
+        <finalName>analysis</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
