@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.dempe.analysis</groupId>
-    <artifactId>analysis-web</artifactId>
+    <artifactId>analysis</artifactId>
     <packaging>war</packaging>
     <version>1.0.0</version>
     <name>analysis-web Maven Webapp</name>
