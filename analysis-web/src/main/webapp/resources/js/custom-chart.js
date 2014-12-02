@@ -18,6 +18,9 @@ function getLineChart(div,url){
                 text: ''
             }
         },
+        credits:{
+            enabled:false // 禁用版权信息
+        },
 
         series: [{}]
     };
