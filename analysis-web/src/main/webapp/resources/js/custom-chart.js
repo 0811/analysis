@@ -3,7 +3,7 @@ function getLineChart(div,url){
     var options = {
         chart: {
             renderTo: div,
-            type: 'bar'
+            type: 'line'
         },
         title: {
             text: '',
@@ -19,11 +19,12 @@ function getLineChart(div,url){
             }
         },
 
-        series: [{name: ''}]
+        series: []
     };
 
     $.getJSON(url, function(data) {
         options.series[0].data = data;
+        options.series[0].name = "test";
         var chart = new Highcharts.Chart(options);
     });
 }
