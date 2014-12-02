@@ -307,6 +307,7 @@
 
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript" src="${ctx}/resources/js/custom-chart.js"></script>
 <script type="text/javascript">
     $(function () {
         // Easy pie charts
@@ -314,19 +315,7 @@
     });
 
   $(document).ready(function() {
-
-      var options = {
-          chart: {
-              renderTo: 'chartDemo',
-              type: 'spline'
-          },
-          series: [{}]
-      };
-
-      $.getJSON('runNumHourly.json', function(data) {
-          options.series[0].data = data;
-          var chart = new Highcharts.Chart(options);
-      });
+      getLineChart(chartDemo,runNumHourly.json)
 
   });
 
