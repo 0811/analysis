@@ -315,7 +315,7 @@
     });
 
   $(document).ready(function() {
-      getLineChart(chartDemo,runNumHourly.json)
+      getLineChart("chartDemo","runNumHourly.json")
 
   });
 
