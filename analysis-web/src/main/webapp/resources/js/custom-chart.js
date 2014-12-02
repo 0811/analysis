@@ -30,7 +30,7 @@ function getLineChart(div,url){
 
     $.getJSON(url, function(data) {
         options.series[0].data = data;
-        options.series[0].name = "test";
+        options.series[0].name = "";
         var chart = new Highcharts.Chart(options);
     });
 }
