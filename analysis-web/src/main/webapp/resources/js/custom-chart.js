@@ -19,7 +19,7 @@ function getLineChart(div,url){
             }
         },
 
-        series: [{}]
+        series: [{name: ''}]
     };
 
     $.getJSON(url, function(data) {
