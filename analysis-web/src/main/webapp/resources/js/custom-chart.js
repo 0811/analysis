@@ -3,7 +3,7 @@ function getLineChart(div,url){
     var options = {
         chart: {
             renderTo: div,
-            type: 'line'
+            type: 'bar'
         },
         title: {
             text: '',
@@ -12,6 +12,11 @@ function getLineChart(div,url){
         subtitle: {
             text: '',
             x: -20
+        },
+        yAxis: {
+            title: {
+                text: ''
+            }
         },
 
         series: [{}]
