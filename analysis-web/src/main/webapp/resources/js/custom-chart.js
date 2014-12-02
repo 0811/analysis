@@ -19,11 +19,12 @@ function getLineChart(div,url){
             }
         },
 
-        series: []
+        series: [{}]
     };
 
     $.getJSON(url, function(data) {
         options.series[0].data = data;
+        options.series[0].name = "test";
         var chart = new Highcharts.Chart(options);
     });
 }
