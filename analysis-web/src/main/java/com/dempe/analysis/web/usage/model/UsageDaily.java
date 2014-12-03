@@ -22,11 +22,11 @@ public class UsageDaily {
 
     private String create_date;
 
-    private Integer runNum;
+    private int runNum;
 
-    private Integer newNum;
+    private int newNum;
 
-    private Integer activeNum;
+    private int activeNum;
 
     private long duration;
 
@@ -78,27 +78,27 @@ public class UsageDaily {
         this.create_date = create_date;
     }
 
-    public Integer getRunNum() {
+    public int getRunNum() {
         return runNum;
     }
 
-    public void setRunNum(Integer runNum) {
+    public void setRunNum(int runNum) {
         this.runNum = runNum;
     }
 
-    public Integer getNewNum() {
+    public int getNewNum() {
         return newNum;
     }
 
-    public void setNewNum(Integer newNum) {
+    public void setNewNum(int newNum) {
         this.newNum = newNum;
     }
 
-    public Integer getActiveNum() {
+    public int getActiveNum() {
         return activeNum;
     }
 
-    public void setActiveNum(Integer activeNum) {
+    public void setActiveNum(int activeNum) {
         this.activeNum = activeNum;
     }
 
