@@ -77,10 +77,7 @@ public class DashboardController {
         List<UsageHourly> usageHourlies = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, CREATE_DATE);
         JSONArray jsonArray = new JSONArray();
         for(UsageHourly usageHourly : usageHourlies){
-            JSONArray ja = new JSONArray();
-            ja.add(usageHourly.getCreate_hour());
-            ja.add(usageHourly.getRunNum());
-            jsonArray.add(ja);
+            jsonArray.add(usageHourly.getRunNum());
         }
 
         return jsonArray.toJSONString();
