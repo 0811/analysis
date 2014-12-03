@@ -25,7 +25,7 @@ public class UsageDailyDao extends BasicDAO<UsageDaily, Serializable> {
 
     public List<UsageDaily> findByAppkeyAndPlatformAndCreateDate(String appkey,String platform,String startDate,String endDate){
         return  this.find(this.createQuery().field("appkey").equal(appkey).field("platform").
-                equal(platform).field("create_date").greaterThan(startDate).field("create-date").lessThan(endDate)
+                equal(platform).field("create_date").greaterThan(startDate).field("create_date").lessThan(endDate)
                 .order("create_date")).asList();
     }
 }
