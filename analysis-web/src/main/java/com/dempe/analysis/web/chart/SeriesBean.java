@@ -17,7 +17,7 @@ public class SeriesBean {
 
 
 
-    private boolean showInLegend;
+    private boolean showInLegend = true;
 
 
     public SeriesBean(String name, JSONArray data) {
