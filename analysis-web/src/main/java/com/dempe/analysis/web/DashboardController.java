@@ -86,10 +86,15 @@ public class DashboardController {
         JSONObject xAxis = new JSONObject();
         xAxis.put("categories",hours);
 
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("series",result);
+        jsonObject.put("xAxis",xAxis);
+
         HighChart highChart = new HighChart();
+
         highChart.setSeries(result);
         highChart.setxAxis(xAxis);
-        return JSONObject.toJSONString(highChart);
+        return jsonObject.toJSONString();
     }
 
     @ResponseBody
