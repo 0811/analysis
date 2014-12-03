@@ -59,50 +59,48 @@ public class DashboardController {
     @ResponseBody
     @RequestMapping("/newNumHourly.json")
     public String getNewNumHourly(){
-        List<UsageHourly> usageHourlies = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, CREATE_DATE);
-        List<UsageHourly> usageHourlies2 = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, "20140721");
+        List<UsageHourly> todayList = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, CREATE_DATE);
+        List<UsageHourly> yesterdayList = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, "20140721");
 
-        JSONArray jsonArray = new JSONArray();
-        for(UsageHourly usageHourly : usageHourlies){
-            jsonArray.add(usageHourly.getRunNum());
+        JSONArray today = new JSONArray();
+        for(UsageHourly usageHourly : todayList){
+            today.add(usageHourly.getNewNum());
         }
 
-        JSONArray jsonArray2 = new JSONArray();
-        for(UsageHourly usageHourly : usageHourlies2){
-            jsonArray2.add(usageHourly.getRunNum());
+        JSONArray yesterday = new JSONArray();
+        for(UsageHourly usageHourly : yesterdayList){
+            yesterday.add(usageHourly.getNewNum());
         }
 
-        SeriesBean seriesBean = new SeriesBean("today",jsonArray);
-        SeriesBean seriesBean2 = new SeriesBean("yesterday",jsonArray2);
-
-        //seriesBean.setShowInLegend(false);
         JSONArray result = new JSONArray();
-        result.add(seriesBean);
-        result.add(seriesBean2);
+        result.add(today);
+        result.add(yesterday);
 
-        JSONObject xAxis = new JSONObject();
-        xAxis.put("categories",hours);
 
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("series",result);
-        jsonObject.put("xAxis",xAxis);
-
-        HighChart highChart = new HighChart();
-
-        highChart.setSeries(result);
-        highChart.setxAxis(xAxis);
-        return jsonObject.toJSONString();
+        return result.toJSONString();
     }
 
     @ResponseBody
     @RequestMapping("/runNumHourly.json")
     public String getRunNumHourly(){
-        List<UsageHourly> usageHourlies = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, CREATE_DATE);
-        JSONArray jsonArray = new JSONArray();
-        for(UsageHourly usageHourly : usageHourlies){
-            jsonArray.add(usageHourly.getRunNum());
+        List<UsageHourly> todayList = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, CREATE_DATE);
+        List<UsageHourly> yesterdayList = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, "20140721");
+
+        JSONArray today = new JSONArray();
+        for(UsageHourly usageHourly : todayList){
+            today.add(usageHourly.getRunNum());
         }
 
-        return jsonArray.toJSONString();
+        JSONArray yesterday = new JSONArray();
+        for(UsageHourly usageHourly : yesterdayList){
+            yesterday.add(usageHourly.getRunNum());
+        }
+
+        JSONArray result = new JSONArray();
+        result.add(today);
+        result.add(yesterday);
+
+
+        return result.toJSONString();
     }
 }
