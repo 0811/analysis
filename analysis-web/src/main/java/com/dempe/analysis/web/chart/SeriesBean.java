@@ -15,6 +15,8 @@ public class SeriesBean {
     @JsonProperty("data")
     private JSONArray data;
 
+    private boolean showInLegend;
+
 
     public SeriesBean(String name, JSONArray data) {
         this.name = name;
@@ -45,5 +47,13 @@ public class SeriesBean {
 
     public void setData(JSONArray data) {
         this.data = data;
+    }
+
+    public boolean isShowInLegend() {
+        return showInLegend;
+    }
+
+    public void setShowInLegend(boolean showInLegend) {
+        this.showInLegend = showInLegend;
     }
 }
