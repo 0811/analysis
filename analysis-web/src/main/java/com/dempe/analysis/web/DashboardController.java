@@ -66,7 +66,9 @@ public class DashboardController {
         }
 
         SeriesBean seriesBean = new SeriesBean("test",jsonArray);
-        return JSONObject.toJSONString(seriesBean);
+        JSONArray result = new JSONArray();
+        result.add(JSONObject.toJSONString(seriesBean));
+        return result.toJSONString();
     }
 
     @ResponseBody
