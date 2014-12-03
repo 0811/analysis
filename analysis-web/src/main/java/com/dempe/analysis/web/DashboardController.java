@@ -82,10 +82,12 @@ public class DashboardController {
         JSONArray result = new JSONArray();
         result.add(seriesBean);
         result.add(seriesBean2);
-        HighChart highChart = new HighChart();
-        highChart.setSeries(result);
+
         JSONObject xAxis = new JSONObject();
         xAxis.put("categories",hours);
+
+        HighChart highChart = new HighChart();
+        highChart.setSeries(result);
         highChart.setxAxis(xAxis);
         return JSONObject.toJSONString(highChart);
     }
