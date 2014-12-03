@@ -206,20 +206,40 @@
                 </div>
                 <div class="bootstrap-admin-panel-content">
                     <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                        <button type="button" class="btn btn-default" onclick="getLineChart('chartDemo','newNumHourly.json')">新增用户</button>
-                        <button type="button" class="btn btn-default"  onclick="getLineChart('chartDemo','runNumHourly.json')">启动次数</button>
+                        <button type="button" class="btn btn-default" onclick="getLineChart('usageHourlyDiv','newNumHourly.json')">新增用户</button>
+                        <button type="button" class="btn btn-default"  onclick="getLineChart('usageHourlyDiv','runNumHourly.json')">启动次数</button>
                         <button type="button" class="btn btn-default">累计日活</button>
                         <button type="button" class="btn btn-default">活跃用户</button>
                     </div>
                     <br>
                     <br>
-                    <div id="chartDemo" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                    <div id="usageHourlyDiv" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
                 </div>
             </div>
         </div>
     </div>
 
-
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="text-muted bootstrap-admin-box-title">整体趋势</div>
+                </div>
+                <div class="bootstrap-admin-panel-content">
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                        <button type="button" class="btn btn-default" onclick="getLineChart('usageDailyDiv','newNumDaily.json')">新增用户</button>
+                        <button type="button" class="btn btn-default"  onclick="getLineChart('usageDailyDiv','runNumDaily.json')">启动次数</button>
+                        <button type="button" class="btn btn-default">累计用户</button>
+                        <button type="button" class="btn btn-default">活跃用户</button>
+                        <button type="button" class="btn btn-default">平均使用时长</button>
+                    </div>
+                    <br>
+                    <br>
+                    <div id="usageDailyDiv" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 <div class="row">
@@ -317,7 +337,8 @@
     });
 
   $(document).ready(function() {
-      getLineChart("chartDemo","newNumHourly.json")
+      getLineChart("usageHourlyDiv","runNumHourly.json")
+      getLineChart("usageDailyDiv","runNumHourly.json")
 
   });
 

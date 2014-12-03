@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.dempe.analysis.web.chart.HighChart;
 import com.dempe.analysis.web.chart.SeriesBean;
+import com.dempe.analysis.web.usage.dao.UsageDailyDao;
 import com.dempe.analysis.web.usage.dao.UsageHourlyDao;
 import com.dempe.analysis.web.usage.dao.UsageOverrideDao;
+import com.dempe.analysis.web.usage.model.UsageDaily;
 import com.dempe.analysis.web.usage.model.UsageHourly;
 import com.dempe.analysis.web.usage.model.UsageOverride;
 import org.springframework.stereotype.Controller;
@@ -29,6 +31,9 @@ public class DashboardController {
 
     @Resource
     private UsageHourlyDao usageHourlyDao;
+
+    @Resource
+    private UsageDailyDao usageDailyDao;
 
     private final static String APPKEY="ca2bbd6a539ae3a33c5f2832f8baa4ac";
     private final static String PLATFORM="1";
@@ -74,7 +79,7 @@ public class DashboardController {
 
         JSONObject result = new JSONObject();
         result.put("today",today);
-        result.put("yesterday",yesterday);
+        result.put("yesterday", yesterday);
 
 
         return result.toJSONString();
@@ -97,9 +102,33 @@ public class DashboardController {
         }
 
         JSONObject result = new JSONObject();
-        result.put("today",today);
-        result.put("yesterday",yesterday);
+        result.put("today", today);
+        result.put("yesterday", yesterday);
 
         return result.toJSONString();
+    }
+
+    @ResponseBody
+    @RequestMapping("/newNumDaily.json")
+    public String getNewNumDaily(){
+        List<UsageDaily> todayList = usageDailyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM,"20140710","20140717");
+
+        JSONArray today = new JSONArray();
+        for(UsageDaily usageDaily : todayList){
+            today.add(usageDaily.getNewNum());
+        }
+        return today.toJSONString();
+    }
+
+    @ResponseBody
+    @RequestMapping("/runNumDaily.json")
+    public String getRunNumDaily(){
+        List<UsageDaily> todayList = usageDailyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM,"20140710","20140717");
+
+        JSONArray today = new JSONArray();
+        for(UsageDaily usageDaily : todayList){
+            today.add(usageDaily.getRunNum());
+        }
+        return today.toJSONString();
     }
 }
