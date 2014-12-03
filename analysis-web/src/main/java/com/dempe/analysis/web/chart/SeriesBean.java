@@ -1,5 +1,6 @@
 package com.dempe.analysis.web.chart;
 
+import com.alibaba.fastjson.JSONArray;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
@@ -12,10 +13,10 @@ public class SeriesBean {
     @JsonProperty("color")
     private String color;
     @JsonProperty("data")
-    private double[] data;
+    private JSONArray data;
 
 
-    public SeriesBean(String name, String color, double[] data) {
+    public SeriesBean(String name, String color, JSONArray data) {
         this.name = name;
         this.color = color;
         this.data = data;
@@ -38,12 +39,11 @@ public class SeriesBean {
         this.color = color;
     }
 
-    public double[] getData() {
+    public JSONArray getData() {
         return data;
     }
 
-    public void setData(double[] data) {
+    public void setData(JSONArray data) {
         this.data = data;
     }
-
 }
