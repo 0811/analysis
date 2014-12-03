@@ -36,9 +36,8 @@ function getLineChart(div,url){
     $.getJSON(url, function(data) {
         options.series[0].data = data.today;
         options.series[0].name="today";
-        options.series[1].data=data.yesterday;
-        options.series[1].name="yesterday";
-        options.xAxis = data.xAxis;
+//        options.series[1].data=data.yesterday;
+//        options.series[1].name="yesterday";
         var chart = new Highcharts.Chart(options);
     });
 }
