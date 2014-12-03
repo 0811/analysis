@@ -29,7 +29,7 @@ function getLineChart(div,url){
     };
 
     $.getJSON(url, function(data) {
-        options.series= data;
+        options.series[0].data = data;
         var chart = new Highcharts.Chart(options);
     });
 }
