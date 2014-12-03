@@ -206,8 +206,8 @@
                 </div>
                 <div class="bootstrap-admin-panel-content">
                     <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                        <button type="button" class="btn btn-default">新增用户</button>
-                        <button type="button" class="btn btn-default">启动次数</button>
+                        <button type="button" class="btn btn-default" onclick="getLineChart('chartDemo','getNewNumHourly.json')">新增用户</button>
+                        <button type="button" class="btn btn-default"  onclick="getLineChart('chartDemo','getRunNumHourly.json')">启动次数</button>
                         <button type="button" class="btn btn-default">累计日活</button>
                         <button type="button" class="btn btn-default">活跃用户</button>
                     </div>
