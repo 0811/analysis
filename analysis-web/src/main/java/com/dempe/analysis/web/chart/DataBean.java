@@ -26,6 +26,7 @@ public class DataBean {
         this.setSeries(series);
     }
 
+
     public String getTitle() {
         return title;
     }
