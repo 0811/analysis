@@ -1,5 +1,6 @@
 package com.dempe.analysis.web.chart;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 /**
@@ -8,18 +9,17 @@ import com.alibaba.fastjson.JSONObject;
 public class HighChart {
 
 
-    private SeriesBean seriesBean;
+    private JSONArray series;
 
 
     private JSONObject xAxis;
 
-
-    public SeriesBean getSeriesBean() {
-        return seriesBean;
+    public JSONArray getSeries() {
+        return series;
     }
 
-    public void setSeriesBean(SeriesBean seriesBean) {
-        this.seriesBean = seriesBean;
+    public void setSeries(JSONArray series) {
+        this.series = series;
     }
 
     public JSONObject getxAxis() {

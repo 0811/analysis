@@ -2,6 +2,7 @@ package com.dempe.analysis.web;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.dempe.analysis.web.chart.HighChart;
 import com.dempe.analysis.web.chart.SeriesBean;
 import com.dempe.analysis.web.usage.dao.UsageHourlyDao;
 import com.dempe.analysis.web.usage.dao.UsageOverrideDao;
@@ -32,6 +33,9 @@ public class DashboardController {
     private final static String APPKEY="ca2bbd6a539ae3a33c5f2832f8baa4ac";
     private final static String PLATFORM="1";
     private final static String CREATE_DATE="20140722";
+
+    private final static String[] hours = {"00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15",
+            "16","17","18","19","20","21","22","23","24"};
 
 
 
@@ -73,11 +77,17 @@ public class DashboardController {
 
         SeriesBean seriesBean = new SeriesBean("today",jsonArray);
         SeriesBean seriesBean2 = new SeriesBean("yesterday",jsonArray2);
+
         //seriesBean.setShowInLegend(false);
         JSONArray result = new JSONArray();
         result.add(seriesBean);
         result.add(seriesBean2);
-        return result.toJSONString();
+        HighChart highChart = new HighChart();
+        highChart.setSeries(result);
+        JSONObject xAxis = new JSONObject();
+        xAxis.put("categories",hours);
+        highChart.setxAxis(xAxis);
+        return JSONObject.toJSONString(highChart);
     }
 
     @ResponseBody

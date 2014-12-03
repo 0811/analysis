@@ -29,7 +29,8 @@ function getLineChart(div,url){
     };
 
     $.getJSON(url, function(data) {
-        options.series = data;
+        options.series = data.series;
+        options.xAxis = data.xAxis;
         var chart = new Highcharts.Chart(options);
     });
 }
