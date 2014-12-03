@@ -65,8 +65,8 @@ public class DashboardController {
             jsonArray.add(usageHourly.getRunNum());
         }
 
-        SeriesBean seriesBean = new SeriesBean("今天",jsonArray);
-        SeriesBean seriesBean2 = new SeriesBean("昨天",jsonArray);
+        SeriesBean seriesBean = new SeriesBean("today",jsonArray);
+        SeriesBean seriesBean2 = new SeriesBean("yesterday",jsonArray);
         //seriesBean.setShowInLegend(false);
         JSONArray result = new JSONArray();
         result.add(seriesBean);
