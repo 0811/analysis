@@ -1,6 +1,8 @@
 package com.dempe.analysis.web;
 
 import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.dempe.analysis.web.chart.SeriesBean;
 import com.dempe.analysis.web.usage.dao.UsageHourlyDao;
 import com.dempe.analysis.web.usage.dao.UsageOverrideDao;
 import com.dempe.analysis.web.usage.model.UsageHourly;
@@ -57,15 +59,14 @@ public class DashboardController {
     @RequestMapping("/newNumHourly.json")
     public String getNewNumHourly(){
         List<UsageHourly> usageHourlies = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, CREATE_DATE);
+
         JSONArray jsonArray = new JSONArray();
         for(UsageHourly usageHourly : usageHourlies){
-            JSONArray ja = new JSONArray();
-            ja.add(usageHourly.getCreate_hour());
-            ja.add(usageHourly.getNewNum());
-            jsonArray.add(ja);
+            jsonArray.add(usageHourly.getRunNum());
         }
 
-        return jsonArray.toJSONString();
+        SeriesBean seriesBean = new SeriesBean("test","",jsonArray);
+        return JSONObject.toJSONString(seriesBean);
     }
 
     @ResponseBody
