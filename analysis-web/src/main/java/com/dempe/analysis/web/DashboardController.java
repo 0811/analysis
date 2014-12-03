@@ -72,9 +72,9 @@ public class DashboardController {
             yesterday.add(usageHourly.getNewNum());
         }
 
-        JSONArray result = new JSONArray();
-        result.add(today);
-        result.add(yesterday);
+        JSONObject result = new JSONObject();
+        result.put("today",today);
+        result.put("yesterday",yesterday);
 
 
         return result.toJSONString();
@@ -96,10 +96,9 @@ public class DashboardController {
             yesterday.add(usageHourly.getRunNum());
         }
 
-        JSONArray result = new JSONArray();
-        result.add(today);
-        result.add(yesterday);
-
+        JSONObject result = new JSONObject();
+        result.put("today",today);
+        result.put("yesterday",yesterday);
 
         return result.toJSONString();
     }
