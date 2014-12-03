@@ -65,7 +65,7 @@ public class DashboardController {
             jsonArray.add(usageHourly.getRunNum());
         }
 
-        SeriesBean seriesBean = new SeriesBean("test","",jsonArray);
+        SeriesBean seriesBean = new SeriesBean("test",jsonArray);
         return JSONObject.toJSONString(seriesBean);
     }
 

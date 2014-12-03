@@ -10,15 +10,15 @@ public class SeriesBean {
 
     @JsonProperty("name")
     private String name;
-    @JsonProperty("color")
-    private String color;
+//    @JsonProperty("color")
+//    private String color;
     @JsonProperty("data")
     private JSONArray data;
 
 
-    public SeriesBean(String name, String color, JSONArray data) {
+    public SeriesBean(String name, JSONArray data) {
         this.name = name;
-        this.color = color;
+        //this.color = color;
         this.data = data;
     }
 
@@ -31,13 +31,13 @@ public class SeriesBean {
         this.name = name;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
+//    public String getColor() {
+//        return color;
+//    }
+//
+//    public void setColor(String color) {
+//        this.color = color;
+//    }
 
     public JSONArray getData() {
         return data;
