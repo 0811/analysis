@@ -17,7 +17,6 @@ public class DataBean {
     private List<String> categories;
     private List<SeriesBean> series;
 
-
     public DataBean(String divId, String title, String yAxisTitle, String xAxisTitle, List<String> categories, List<SeriesBean> series) {
         this.setDivId(divId);
         this.setTitle(title);
