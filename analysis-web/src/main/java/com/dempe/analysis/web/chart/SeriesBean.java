@@ -15,6 +15,8 @@ public class SeriesBean {
     @JsonProperty("data")
     private JSONArray data;
 
+
+
     private boolean showInLegend;
 
 

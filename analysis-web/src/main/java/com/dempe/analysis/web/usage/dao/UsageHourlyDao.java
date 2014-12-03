@@ -25,6 +25,6 @@ public class UsageHourlyDao extends BasicDAO<UsageHourly, Serializable> {
 
     public List<UsageHourly> findByAppkeyAndPlatformAndCreateDate(String appkey,String platform,String ceate_date){
         return  this.find(this.createQuery().field("appkey").equal(appkey).field("platform").
-                equal(platform).field("create_date").equal(ceate_date)).asList();
+                equal(platform).field("create_date").equal(ceate_date).order("create_hour")).asList();
     }
 }

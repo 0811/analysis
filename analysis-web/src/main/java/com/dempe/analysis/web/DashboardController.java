@@ -58,16 +58,16 @@ public class DashboardController {
     @ResponseBody
     @RequestMapping("/newNumHourly.json")
     public String getNewNumHourly(){
-        List<UsageHourly> usageHourlies = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, CREATE_DATE);
+        List<UsageHourly> usageHourlies = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, "20140721");
 
         JSONArray jsonArray = new JSONArray();
         for(UsageHourly usageHourly : usageHourlies){
             jsonArray.add(usageHourly.getRunNum());
         }
 
-        SeriesBean seriesBean = new SeriesBean("test",jsonArray);
-        SeriesBean seriesBean2 = new SeriesBean("test",jsonArray);
-        seriesBean.setShowInLegend(false);
+        SeriesBean seriesBean = new SeriesBean("今天",jsonArray);
+        SeriesBean seriesBean2 = new SeriesBean("昨天",jsonArray);
+        //seriesBean.setShowInLegend(false);
         JSONArray result = new JSONArray();
         result.add(seriesBean);
         result.add(seriesBean2);
