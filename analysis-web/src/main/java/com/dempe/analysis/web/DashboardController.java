@@ -39,6 +39,9 @@ public class DashboardController {
 
 
 
+    private final static String[] hours2 = {"00","04","08","12","16","20","24"};
+
+
 
 
     @RequestMapping("/home")
@@ -84,7 +87,7 @@ public class DashboardController {
         result.add(seriesBean2);
 
         JSONObject xAxis = new JSONObject();
-        xAxis.put("categories",hours);
+        xAxis.put("categories",hours2);
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("series",result);
