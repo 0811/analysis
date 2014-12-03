@@ -9,6 +9,7 @@ import java.util.List;
  */
 @JsonRootName("dataBean")
 public class DataBean {
+
     private String divId;
     private String title;
     private String yAxisTitle;
