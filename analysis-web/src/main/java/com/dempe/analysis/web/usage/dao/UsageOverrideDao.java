@@ -1,7 +1,6 @@
 package com.dempe.analysis.web.usage.dao;
 
 import com.dempe.analysis.web.usage.model.UsageOverride;
-import com.dempe.analysis.web.utils.DateUtils;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.dao.BasicDAO;
 import org.springframework.beans.factory.annotation.Autowired;

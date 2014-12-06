@@ -1,4 +1,4 @@
-package com.dempe.analysis.web.chart;
+package com.dempe.analysis.chart;
 
 import com.alibaba.fastjson.JSONArray;
 import org.codehaus.jackson.annotate.JsonProperty;

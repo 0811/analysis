@@ -1,4 +1,4 @@
-package com.dempe.analysis.web.utils;
+package com.dempe.analysis.utils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

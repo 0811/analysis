@@ -1,4 +1,4 @@
-package com.dempe.analysis.web.chart;
+package com.dempe.analysis.chart;
 
 import org.codehaus.jackson.map.annotate.JsonRootName;
 

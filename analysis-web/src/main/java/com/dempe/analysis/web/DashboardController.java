@@ -2,8 +2,6 @@ package com.dempe.analysis.web;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.dempe.analysis.web.chart.HighChart;
-import com.dempe.analysis.web.chart.SeriesBean;
 import com.dempe.analysis.web.usage.dao.UsageDailyDao;
 import com.dempe.analysis.web.usage.dao.UsageHourlyDao;
 import com.dempe.analysis.web.usage.dao.UsageOverrideDao;
