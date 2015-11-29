@@ -25,9 +25,9 @@ public class UsageHourly {
 
     private String create_hour;
 
-    private Integer runNum;
+    private int runNum;
 
-    private Integer newNum;
+    private int newNum;
 
 
     public String getId() {
@@ -62,19 +62,19 @@ public class UsageHourly {
         this.channel = channel;
     }
 
-    public Integer getRunNum() {
+    public int getRunNum() {
         return runNum;
     }
 
-    public void setRunNum(Integer runNum) {
+    public void setRunNum(int runNum) {
         this.runNum = runNum;
     }
 
-    public Integer getNewNum() {
+    public int getNewNum() {
         return newNum;
     }
 
-    public void setNewNum(Integer newNum) {
+    public void setNewNum(int newNum) {
         this.newNum = newNum;
     }
 

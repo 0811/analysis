@@ -1,5 +1,7 @@
 package com.dempe.analysis.core;
 
+import com.dempe.analysis.core.utils.MD5;
+
 /**
  * @author : Dempe
  * @version 1.0 date : 2014/10/17
@@ -13,6 +15,8 @@ public class Analysis {
                 .setTaskNum(4)
                 .setCloseOnJvmShutdown(true)
                 .setSyncThreadSleepTime(5000);
+
+
 
         final AnalysisContext context = new AnalysisContext(builder);
         context.start();

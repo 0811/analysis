@@ -27,7 +27,7 @@ public class MongoSyncDao implements SyncDao {
 
     public static final Logger LOGGER = Logger.getLogger(MongoSyncDao.class);
 
-    private final static String DEF_MONGO_URL = "127.0.0.1:27000";
+    private final static String DEF_MONGO_URL = "127.0.0.1:27017";
     private final static String DEF_MONGOD_DB = "ANALYSIS";
 
     private DB db;
