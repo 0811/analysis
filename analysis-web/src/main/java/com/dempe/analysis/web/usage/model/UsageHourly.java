@@ -22,12 +22,13 @@ public class UsageHourly {
 
     private String create_date;
 
-
     private String create_hour;
 
     private int runNum;
 
     private int newNum;
+
+    private int activeNum;
 
 
     public String getId() {
@@ -101,5 +102,13 @@ public class UsageHourly {
 
     public void setCreate_hour(String create_hour) {
         this.create_hour = create_hour;
+    }
+
+    public int getActiveNum() {
+        return activeNum;
+    }
+
+    public void setActiveNum(int activeNum) {
+        this.activeNum = activeNum;
     }
 }

@@ -2,19 +2,17 @@ package com.dempe.analysis.web;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.dempe.analysis.web.usage.dao.UsageDailyDao;
 import com.dempe.analysis.web.usage.dao.UsageHourlyDao;
 import com.dempe.analysis.web.usage.dao.UsageOverrideDao;
-import com.dempe.analysis.web.usage.model.UsageHourly;
 import com.dempe.analysis.web.usage.model.UsageOverride;
 import com.dempe.analysis.web.usage.service.UsageDailyService;
+import com.dempe.analysis.web.usage.service.UsageHourlyService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @author : Dempe
@@ -31,10 +29,8 @@ public class DashboardController {
     private UsageDailyService usageDailyService;
 
     @Resource
-    private UsageHourlyDao usageHourlyDao;
+    private UsageHourlyService usageHourlyService;
 
-    @Resource
-    private UsageDailyDao usageDailyDao;
 
     private final static String APPKEY = "ca2bbd6a539ae3a33c5f2832f8baa4ac";
     private final static String PLATFORM = "1";
@@ -62,47 +58,27 @@ public class DashboardController {
     @ResponseBody
     @RequestMapping("/newNumHourly.json")
     public String getNewNumHourly() {
-        List<UsageHourly> todayList = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, CREATE_DATE);
-        List<UsageHourly> yesterdayList = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, "20140721");
-
-        JSONArray today = new JSONArray();
-        for (UsageHourly usageHourly : todayList) {
-            today.add(usageHourly.getNewNum());
-        }
-
-        JSONArray yesterday = new JSONArray();
-        for (UsageHourly usageHourly : yesterdayList) {
-            yesterday.add(usageHourly.getNewNum());
-        }
-
         JSONObject result = new JSONObject();
-        result.put("today", today);
-        result.put("yesterday", yesterday);
-
-
+        result.put("today", usageHourlyService.getNewNumHourly(CREATE_DATE));
+        result.put("yesterday", usageHourlyService.getNewNumHourly("20140721"));
         return result.toJSONString();
     }
 
     @ResponseBody
     @RequestMapping("/runNumHourly.json")
     public String getRunNumHourly() {
-        List<UsageHourly> todayList = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, CREATE_DATE);
-        List<UsageHourly> yesterdayList = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, "20140721");
-
-        JSONArray today = new JSONArray();
-        for (UsageHourly usageHourly : todayList) {
-            today.add(usageHourly.getRunNum());
-        }
-
-        JSONArray yesterday = new JSONArray();
-        for (UsageHourly usageHourly : yesterdayList) {
-            yesterday.add(usageHourly.getRunNum());
-        }
-
         JSONObject result = new JSONObject();
-        result.put("today", today);
-        result.put("yesterday", yesterday);
+        result.put("today", usageHourlyService.getRunNumHourly(CREATE_DATE));
+        result.put("yesterday", usageHourlyService.getRunNumHourly("20140721"));
+        return result.toJSONString();
+    }
 
+    @ResponseBody
+    @RequestMapping("/activeActiveHourly.json")
+    public String getActiveActiveHourly() {
+        JSONObject result = new JSONObject();
+        result.put("today", usageHourlyService.getActiveHourly(CREATE_DATE));
+        result.put("yesterday", usageHourlyService.getActiveHourly("20140721"));
         return result.toJSONString();
     }
 

@@ -18,9 +18,6 @@
     <!-- Vendors -->
     <link rel="stylesheet" media="screen" href="${ctx}/resources/vendors/easypiechart/jquery.easy-pie-chart.css">
     <link rel="stylesheet" media="screen" href="${ctx}/resources/vendors/easypiechart/jquery.easy-pie-chart_custom.css">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
     <script type="text/javascript" src="${ctx}/resources/js/html5shiv.js"></script>
     <script type="text/javascript" src="${ctx}/resources/js/respond.min.js"></script>
     <![endif]-->
@@ -74,7 +71,6 @@
 <div class="container">
     <!-- left, vertical navbar & content -->
     <div class="row">
-        <!-- left, vertical navbar -->
 
         <jsp:include page="menu.jsp"/>
 
@@ -107,7 +103,6 @@
                                     <td>${today_usageOverride.newNum}</td>
                                     <td>${today_usageOverride.runNum}</td>
                                     <td>${today_usageOverride.duration}</td>
-
                                 </tr>
                                 <tr>
                                     <td>昨日数据</td>
@@ -140,7 +135,8 @@
                                 </button>
                                 <button type="button" class="btn btn-default"
                                         onclick="getLineChart('usageHourlyDiv','activeNumHourly.json')">累计日活</button>
-                                <button type="button" class="btn btn-default">活跃用户</button>
+                                <button type="button" class="btn btn-default"
+                                        onclick="getLineChart('usageHourlyDiv','activeActiveHourly.json')">活跃用户</button>
                             </div>
                             <br>
                             <br>
@@ -179,64 +175,6 @@
                 </div>
             </div>
 
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default bootstrap-admin-no-table-panel">
-                        <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">Statistics</div>
-                            <div class="pull-right"><span class="badge">View More</span></div>
-                        </div>
-                        <div class="bootstrap-admin-panel-content bootstrap-admin-no-table-panel-content collapse in">
-                            <div class="col-md-3">
-                                <div class="easyPieChart" data-percent="73"
-                                     style="width: 110px; height: 110px; line-height: 110px;">73%
-                                    <canvas width="110" height="110"></canvas>
-                                </div>
-                                <div class="chart-bottom-heading"><span class="label label-info">Visitors</span></div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="easyPieChart" data-percent="53"
-                                     style="width: 110px; height: 110px; line-height: 110px;">53%
-                                    <canvas width="110" height="110"></canvas>
-                                </div>
-                                <div class="chart-bottom-heading"><span class="label label-info">Page Views</span></div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="easyPieChart" data-percent="83"
-                                     style="width: 110px; height: 110px; line-height: 110px;">83%
-                                    <canvas width="110" height="110"></canvas>
-                                </div>
-                                <div class="chart-bottom-heading"><span class="label label-info">Users</span></div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="easyPieChart" data-percent="13"
-                                     style="width: 110px; height: 110px; line-height: 110px;">13%
-                                    <canvas width="110" height="110"></canvas>
-                                </div>
-                                <div class="chart-bottom-heading"><span class="label label-info">Orders</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">Panel without data</div>
-                            <div class="pull-right"><span class="badge">0</span></div>
-                        </div>
-                        <div class="panel-body">
-                            <div class="no-data">
-                                Sorry, no data to display
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -270,7 +208,6 @@
 <script type="text/javascript" src="${ctx}/resources/js/custom-chart.js"></script>
 <script type="text/javascript">
     $(function () {
-        // Easy pie charts
         $('.easyPieChart').easyPieChart({animate: 1000});
     });
 
