@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://F:/IDE/analysis/analysis.iml" filepath="F:/IDE/analysis/analysis.iml" />
+      <module fileurl="file://F:/IDE/analysis/analysis-core.iml" filepath="F:/IDE/analysis/analysis-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/analysis-core.iml" filepath="$PROJECT_DIR$/analysis-core.iml" />
+      <module fileurl="file://F:/IDE/analysis/analysis-web.iml" filepath="F:/IDE/analysis/analysis-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/analysis-web.iml" filepath="$PROJECT_DIR$/analysis-web.iml" />
     </modules>
   </component>
 </project>
-

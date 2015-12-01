@@ -5,7 +5,7 @@
     <artifactId>analysis-web</artifactId>
     <packaging>war</packaging>
     <version>1.0.0</version>
-    <name>analysis</name>
+    <name>analysis-web</name>
     <url>http://maven.apache.org</url>
 
 
