@@ -75,7 +75,7 @@ public abstract class TimeSyncStoreMap implements Command {
     protected void sync(Map<String, JSONObject> storeMap) {
     }
 
-    public void saftyClose() {
+    public void safetyClose() {
         //同步数据完成关闭
         if (storeMap != null) {
             sync(storeMap);

@@ -24,7 +24,7 @@
 </head>
 <body class="bootstrap-admin-with-small-navbar">
 <!-- small navbar -->
-<jsp:include page="navbar.jsp"/>
+<jsp:include page="../navbar.jsp"/>
 
 <!-- main / large navbar -->
 <nav class="navbar navbar-default navbar-fixed-top bootstrap-admin-navbar bootstrap-admin-navbar-under-small"
@@ -72,7 +72,7 @@
     <!-- left, vertical navbar & content -->
     <div class="row">
 
-        <jsp:include page="menu.jsp"/>
+        <jsp:include page="../menu.jsp"/>
 
         <!-- content -->
         <div class="col-md-10">
@@ -81,37 +81,35 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">今日数据</div>
+                            <div class="text-muted bootstrap-admin-box-title">app列表</div>
+                            <div class="pull-right">
+                                <button onclick="window.location='/app/new'">新增</button>
+                            </div>
                         </div>
+
                         <div class="bootstrap-admin-panel-content">
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
-                                    <th></th>
-                                    <th>新增用户</th>
-                                    <th>活跃用户</th>
-                                    <th>新增用户占比</th>
-                                    <th>启动次数</th>
-                                    <th>平均单次使用时长</th>
+                                    <th>appId</th>
+                                    <th>名称</th>
+                                    <th>描述</th>
+                                    <th>创建时间</th>
+                                    <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>今日数据</td>
-                                    <td>${today_usageOverride.newNum}</td>
-                                    <td>${today_usageOverride.activeNum}</td>
-                                    <td>${today_usageOverride.newNum}</td>
-                                    <td>${today_usageOverride.runNum}</td>
-                                    <td>${today_usageOverride.duration}</td>
-                                </tr>
-                                <tr>
-                                    <td>昨日数据</td>
-                                    <td>${yest_usageOverride.newNum}</td>
-                                    <td>${yest_usageOverride.activeNum}</td>
-                                    <td>${yest_usageOverride.newNum}</td>
-                                    <td>${yest_usageOverride.runNum}</td>
-                                    <td>${yest_usageOverride.duration}</td>
-                                </tr>
+                                <c:forEach var="app" items="${appList}" varStatus="status">
+                                    <tr id="tr_${app.id}">
+                                        <td>${app.id}</td>
+                                        <td>${app.name}</td>
+                                        <td>${app.info}</td>
+                                        <td>${app.createAt}</td>
+                                        <td>
+                                            <button type="button" _id="${app.id}" id="delApp">删除</button>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -119,68 +117,13 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">时段分析</div>
-                        </div>
-                        <div class="bootstrap-admin-panel-content">
-                            <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                                <button type="button" class="btn btn-default"
-                                        onclick="getLineChart('usageHourlyDiv','newNumHourly.json')">新增用户
-                                </button>
-                                <button type="button" class="btn btn-default"
-                                        onclick="getLineChart('usageHourlyDiv','runNumHourly.json')">启动次数
-                                </button>
-                                <button type="button" class="btn btn-default"
-                                        onclick="getLineChart('usageHourlyDiv','activeNumHourly.json')">累计日活</button>
-                                <button type="button" class="btn btn-default"
-                                        onclick="getLineChart('usageHourlyDiv','activeActiveHourly.json')">活跃用户</button>
-                            </div>
-                            <br>
-                            <br>
-
-                            <div id="usageHourlyDiv" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="text-muted bootstrap-admin-box-title">整体趋势</div>
-                        </div>
-                        <div class="bootstrap-admin-panel-content">
-                            <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                                <button type="button" class="btn btn-default"
-                                        onclick="getDailyLineChart('usageDailyDiv','newNumDaily.json')">新增用户
-                                </button>
-                                <button type="button" class="btn btn-default"
-                                        onclick="getDailyLineChart('usageDailyDiv','runNumDaily.json')">启动次数
-                                </button>
-                                <button type="button" class="btn btn-default">累计用户</button>
-                                <button type="button" class="btn btn-default"
-                                        onclick="getDailyLineChart('usageDailyDiv','activeNumDaily.json')">活跃用户</button>
-                                <button type="button" class="btn btn-default">平均使用时长</button>
-                            </div>
-                            <br>
-                            <br>
-
-                            <div id="usageDailyDiv" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>
 </div>
 
 <!-- footer -->
-<jsp:include page="footer.jsp"/>
+<jsp:include page="../footer.jsp"/>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 
@@ -194,15 +137,26 @@
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script type="text/javascript" src="${ctx}/resources/js/custom-chart.js"></script>
 <script type="text/javascript">
-    $(function () {
-        $('.easyPieChart').easyPieChart({animate: 1000});
+    $('#delApp').on('click', function () {
+        var id = $(this).attr("_id");
+        appDel(id);
     });
 
-    $(document).ready(function () {
-        getLineChart("usageHourlyDiv", "runNumHourly.json")
-        getDailyLineChart("usageDailyDiv", "runNumDaily.json")
+    function appDel(id) {
+        $.ajax({
+            type: "post",
+            url: "/app/del",
+            data: "id=" + id,
+            async: false,
+            dataType: "json",
+            success: function (data) {
+                if (data.code == '0') {
+                    $('#tr_' + id).remove();
+                }
+            }
+        });
+    }
 
-    });
 
 </script>
 </body>

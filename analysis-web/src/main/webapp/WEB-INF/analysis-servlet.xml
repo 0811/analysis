@@ -32,9 +32,7 @@
         <beans:property name="paramName" value="locale"/>
     </beans:bean>
 
-    <interceptors>
-        <beans:ref bean="localeChangeInterceptor"/>
-    </interceptors>
+
 
     <!-- 定义无Controller的path<->view直接映射 -->
     <mvc:view-controller path="/" view-name="redirect:/dashboard/home"/>

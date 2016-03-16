@@ -10,7 +10,7 @@
   <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
 
     <li class="active">
-      <a href="dashboard.html"><i class="glyphicon glyphicon-chevron-right"></i> 概况</a>
+      <a href="/dashboard/home"><i class="glyphicon glyphicon-chevron-right"></i> 概况</a>
     </li>
     <li>
       <a href="#"><i class="glyphicon glyphicon-chevron-right"></i> 应用趋势</a>
@@ -31,7 +31,7 @@
       <a href="wysiwyg-editors.html"><i class="glyphicon glyphicon-chevron-right"></i> 错误分析</a>
     </li>
     <li>
-      <a href="ui-and-interface.html"><i class="glyphicon glyphicon-chevron-right"></i> UI &amp; Interface</a>
+      <a href="/app/index"><i class="glyphicon glyphicon-chevron-right"></i>app管理</a>
     </li>
     <li>
       <a href="error-pages.html"><i class="glyphicon glyphicon-chevron-right"></i> Error pages</a>

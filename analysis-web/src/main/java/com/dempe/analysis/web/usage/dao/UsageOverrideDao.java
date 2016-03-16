@@ -20,8 +20,8 @@ public class UsageOverrideDao extends BasicDAO<UsageOverride, Serializable> {
         ensureIndexes();// 自动创建索引
     }
 
-    public UsageOverride findByAppkeyAndPlatformAndCreateDate(String appkey,String platform,String ceate_date){
+    public UsageOverride findByAppkeyAndPlatformAndCreateDate(String appkey,String platform,String create_date){
         return  this.findOne(this.createQuery().field("appkey").equal(appkey).field("platform").
-                equal(platform).field("create_date").equal(ceate_date));
+                equal(platform).field("create_date").equal(create_date));
     }
 }
