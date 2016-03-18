@@ -19,16 +19,16 @@
     </context-param>
 
     <!--<servlet-mapping>-->
-        <!--<servlet-name>default</servlet-name>-->
-        <!--<url-pattern>*.jpg</url-pattern>-->
+    <!--<servlet-name>default</servlet-name>-->
+    <!--<url-pattern>*.jpg</url-pattern>-->
     <!--</servlet-mapping>-->
     <!--<servlet-mapping>-->
-        <!--<servlet-name>default</servlet-name>-->
-        <!--<url-pattern>*.js</url-pattern>-->
+    <!--<servlet-name>default</servlet-name>-->
+    <!--<url-pattern>*.js</url-pattern>-->
     <!--</servlet-mapping>-->
     <!--<servlet-mapping>-->
-        <!--<servlet-name>default</servlet-name>-->
-        <!--<url-pattern>*.css</url-pattern>-->
+    <!--<servlet-name>default</servlet-name>-->
+    <!--<url-pattern>*.css</url-pattern>-->
     <!--</servlet-mapping>-->
 
     <!-- - Provides core MVC application controller. See contacts-servlet.xml. -->

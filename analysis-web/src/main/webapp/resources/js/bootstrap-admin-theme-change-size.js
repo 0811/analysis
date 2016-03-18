@@ -1,7 +1,7 @@
-$(function() {
+$(function () {
     var sizeChangerContainer = '.bootstrap-admin-theme-change-size';
 
-    $('.size-changer', sizeChangerContainer).on('click', function() {
+    $('.size-changer', sizeChangerContainer).on('click', function () {
         var setLargeSize = $(this).hasClass('large');
 
         if (setLargeSize && $('link[href^="css/bootstrap-admin-theme"]').length === 2) {

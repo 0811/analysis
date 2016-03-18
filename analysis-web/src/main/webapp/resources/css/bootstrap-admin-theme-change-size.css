@@ -4,12 +4,14 @@
     * Copyright  : Meritoo.pl
 */
 
-.bootstrap-admin-theme-change-size li:first-of-type{
+.bootstrap-admin-theme-change-size li:first-of-type {
     padding-left: 0 !important;
 }
-.bootstrap-admin-theme-change-size .size-changer{
+
+.bootstrap-admin-theme-change-size .size-changer {
     cursor: pointer;
 }
-.bootstrap-admin-theme-change-size .size-changer.active{
+
+.bootstrap-admin-theme-change-size .size-changer.active {
     color: #00A1F1;
 }

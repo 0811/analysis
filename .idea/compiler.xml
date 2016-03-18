@@ -23,6 +23,7 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="analysis-core" />
+        <module name="analysis-manger" />
         <module name="analysis-web" />
       </profile>
     </annotationProcessing>

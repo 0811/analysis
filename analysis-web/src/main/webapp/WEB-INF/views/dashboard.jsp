@@ -134,9 +134,11 @@
                                         onclick="getLineChart('usageHourlyDiv','runNumHourly.json')">启动次数
                                 </button>
                                 <button type="button" class="btn btn-default"
-                                        onclick="getLineChart('usageHourlyDiv','activeNumHourly.json')">累计日活</button>
+                                        onclick="getLineChart('usageHourlyDiv','activeNumHourly.json')">累计日活
+                                </button>
                                 <button type="button" class="btn btn-default"
-                                        onclick="getLineChart('usageHourlyDiv','activeActiveHourly.json')">活跃用户</button>
+                                        onclick="getLineChart('usageHourlyDiv','activeActiveHourly.json')">活跃用户
+                                </button>
                             </div>
                             <br>
                             <br>
@@ -163,7 +165,8 @@
                                 </button>
                                 <button type="button" class="btn btn-default">累计用户</button>
                                 <button type="button" class="btn btn-default"
-                                        onclick="getDailyLineChart('usageDailyDiv','activeNumDaily.json')">活跃用户</button>
+                                        onclick="getDailyLineChart('usageDailyDiv','activeNumDaily.json')">活跃用户
+                                </button>
                                 <button type="button" class="btn btn-default">平均使用时长</button>
                             </div>
                             <br>

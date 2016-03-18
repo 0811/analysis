@@ -13,7 +13,7 @@
   ],
   "main": ["jquery.bootstrap.wizard.js"],
   "dependencies": {
-    "jquery" : ">=1.9.1",
-    "bootstrap" : ">=2.3.0 <3.0"
+    "jquery": ">=1.9.1",
+    "bootstrap": ">=2.3.0 <3.0"
   }
 }

@@ -103,11 +103,11 @@
                                     <label class="col-lg-2 control-label" for="name">应用名称</label>
 
                                     <div class="col-lg-10">
-                                        <input class="form-control" id="name"  name="name" type="text">
+                                        <input class="form-control" id="name" name="name" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-lg-2 control-label" for="info" >应用描述</label>
+                                    <label class="col-lg-2 control-label" for="info">应用描述</label>
 
                                     <div class="col-lg-10">
                                         <input class="form-control" id="info" name="info" type="text">

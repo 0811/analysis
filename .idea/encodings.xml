@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/DashboardController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/HomeController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/controller/DeviceCarrierController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/controller/DeviceCountryController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/controller/DeviceModelController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/controller/DeviceNetworkController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/controller/DeviceOsController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/controller/DeviceProvinceController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/controller/DeviceResolutionController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/dao/DeviceCarrierDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/dao/DeviceCountryDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/dao/DeviceModelDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/dao/DeviceNetworkDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/dao/DeviceOsDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/dao/DeviceProvinceDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/dao/DeviceResolutionDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/model/DeviceCarrier.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/model/DeviceCountry.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/model/DeviceModel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/model/DeviceNetwork.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/model/DeviceOs.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/model/DeviceProvince.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/device/model/DeviceResolution.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/error/dao/ErrorInfoDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/error/model/ErrorInfo.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/retention/dao/RetentionDailyDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/retention/dao/RetentionMonthlyDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/retention/dao/RetentionWeeklyDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/retention/model/RetentionDaily.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/retention/model/RetentionMonthly.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/retention/model/RetentionWeekly.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/usage/controller/UsageOverrideController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/usage/dao/UsageDailyDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/usage/dao/UsageHourlyDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/usage/dao/UsageOverrideDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/usage/model/UsageDaily.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/usage/model/UsageDuration.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/usage/model/UsageDurationDaily.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/usage/model/UsageFrequency.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/usage/model/UsageHourly.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/usage/model/UsageInterval.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/usage/model/UsageOverride.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/usage/service/UsageDailyService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/api/usage/service/UsageHourlyService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/system/controller/AppController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/system/dao/AppDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/system/model/App.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/system/service/AppService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/utils/DateUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/utils/Hex.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/utils/MD5.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/analysis-manger/src/main/java/com/dempe/analysis/manger/utils/UUIDUtils.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/analysis-web" charset="UTF-8" />
   </component>
 </project>

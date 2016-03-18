@@ -10,11 +10,10 @@ public class SeriesBean {
 
     @JsonProperty("name")
     private String name;
-//    @JsonProperty("color")
+    //    @JsonProperty("color")
     private String color;
     @JsonProperty("data")
     private JSONArray data;
-
 
 
     private boolean showInLegend = true;
