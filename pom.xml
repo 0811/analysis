@@ -12,6 +12,7 @@
         <module>analysis-core</module>
         <module>analysis-web</module>
         <module>analysis-manger</module>
+        <module>analysis-monitor</module>
     </modules>
 
 

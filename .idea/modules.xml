@@ -6,6 +6,7 @@
       <module fileurl="file://F:/IDE/analysis/analysis-core.iml" filepath="F:/IDE/analysis/analysis-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/analysis-core.iml" filepath="$PROJECT_DIR$/analysis-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/analysis-manger/analysis-manger.iml" filepath="$PROJECT_DIR$/analysis-manger/analysis-manger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/analysis-monitor/analysis-monitor.iml" filepath="$PROJECT_DIR$/analysis-monitor/analysis-monitor.iml" />
       <module fileurl="file://F:/IDE/analysis/analysis-web.iml" filepath="F:/IDE/analysis/analysis-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/analysis-web.iml" filepath="$PROJECT_DIR$/analysis-web.iml" />
     </modules>

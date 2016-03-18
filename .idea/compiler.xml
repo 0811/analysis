@@ -24,6 +24,7 @@
         <processorPath useClasspath="true" />
         <module name="analysis-core" />
         <module name="analysis-manger" />
+        <module name="analysis-monitor" />
         <module name="analysis-web" />
       </profile>
     </annotationProcessing>
