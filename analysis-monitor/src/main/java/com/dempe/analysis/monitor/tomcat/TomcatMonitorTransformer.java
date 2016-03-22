@@ -25,7 +25,7 @@ public class TomcatMonitorTransformer implements ClassFileTransformer {
         //创建操作字节流值对象，ClassWriter.COMPUTE_MAXS:表示自动计算栈大小
         ClassWriter writer = new ClassWriter(reader, ClassWriter.COMPUTE_MAXS);
         //接受一个ClassVisitor子类进行字节码修改
-        if (className.endsWith("StandardEngineValve")) {
+        if (className.endsWith("StandardEngine")) {
             System.out.println(">>>>>>>>>>>>>>transform className:" + className);
             reader.accept(new TomcatServiceMonitorsVisitor(writer, className), 8);
         } else {
