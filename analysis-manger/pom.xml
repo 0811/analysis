@@ -28,6 +28,11 @@
     <dependencies>
 
 
+        <dependency>
+            <groupId>com.dempe.analysis</groupId>
+            <artifactId>analysis-monitor-new</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
         <!-- MongoDB Java Driver -->
         <dependency>

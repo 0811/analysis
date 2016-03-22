@@ -31,14 +31,13 @@ public class DashboardController {
     private UsageHourlyService usageHourlyService;
 
 
-    private final static String APPKEY = "ca2bbd6a539ae3a33c5f2832f8baa4ac";
     private final static String PLATFORM = "1";
+    private final static String APPKEY = "ca2bbd6a539ae3a33c5f2832f8baa4ac";
     private final static String CREATE_DATE = "20140722";
 
 
     @RequestMapping("/index")
     public String home(Model model) {
-
         UsageOverride today_usageOverride = usageOverrideDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, CREATE_DATE);
         UsageOverride yest_usageOverride = usageOverrideDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, CREATE_DATE);
 
