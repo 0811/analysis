@@ -18,7 +18,7 @@
 
     <!-- 库名称 -->
     <bean id="dbName" class="java.lang.String">
-        <constructor-arg index="0" value="manger"/>
+        <constructor-arg index="0" value="ANALYSIS"/>
     </bean>
 
     <!-- datastore实例 -->

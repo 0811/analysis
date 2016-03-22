@@ -151,59 +151,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-12">
-                <div class="box">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Monthly Recap Report</h3>
-
-                        <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                    class="fa fa-minus"></i>
-                            </button>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-box-tool dropdown-toggle"
-                                        data-toggle="dropdown">
-                                    <i class="fa fa-wrench"></i></button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
-                                </ul>
-                            </div>
-                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i
-                                    class="fa fa-times"></i></button>
-                        </div>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p class="text-center">
-                                    <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
-                                </p>
-
-                                <div class="chart">
-                                    <!-- Sales Chart Canvas -->
-                                    <canvas id="salesChart" style="height: 180px;"></canvas>
-                                </div>
-                                <!-- /.chart-responsive -->
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-                    </div>
-                    <!-- ./box-body -->
-                    <div class="box-footer">
-                        <!-- /.row -->
-                    </div>
-                    <!-- /.box-footer -->
-                </div>
-                <!-- /.box -->
-            </div>
-            <div class="col-md-12">
+            <div id="container" class="col-md-12">
             </div>
 
 
@@ -233,8 +181,12 @@
 <script src="${ctx}/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="${ctx}/dist/js/app.min.js"></script>
-<script src="${ctx}/dist/js/pages/dashboard2.js"></script>
+<%--<script src="${ctx}/dist/js/pages/dashboard2.js"></script>--%>
 <script src="${ctx}/plugins/chartjs/Chart.min.js"></script>
+
+<script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+<%--<script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/exporting.js"></script>--%>
+
 
 
 <!-- jvectormap -->
@@ -242,6 +194,37 @@
 <script src="${ctx}/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="${ctx}/dist/js/demo.js"></script>
-<script src="${ctx}/dist/js/pages/dashboard.js"></script>
+<%--<script src="${ctx}/dist/js/pages/dashboard.js"></script>--%>
+
+<script type="application/javascript">
+    $(document).ready(function() {
+        var options = {
+            chart: {
+                renderTo: 'container',
+                type: 'spline'
+            },
+            title: {
+                text: '时段分析'
+            },
+            credits: {
+                enabled: false
+            },
+            yAxis:{
+                title:{
+                    text:'新增用户'
+                }
+            },
+            series: [{}]
+        };
+
+        $.getJSON('/analysis/newNumHourly.json', function (data) {
+            options.series = data;
+            var chart = new Highcharts.Chart(options);
+        });
+
+    });
+
+
+</script>
 </body>
 </html>

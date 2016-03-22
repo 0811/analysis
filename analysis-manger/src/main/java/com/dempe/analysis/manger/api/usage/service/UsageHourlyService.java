@@ -1,11 +1,13 @@
 package com.dempe.analysis.manger.api.usage.service;
 
+import com.alibaba.fastjson.JSONArray;
 import com.dempe.analysis.manger.api.usage.dao.UsageHourlyDao;
 import com.dempe.analysis.manger.api.usage.model.UsageHourly;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -36,7 +38,7 @@ public class UsageHourlyService {
     }
 
 
-    public Object[] getNewNumHourly(String create_date) {
+    public JSONArray getNewNumHourly(String create_date) {
         Map<String, Integer> usageHourlyMap = new HashMap<String, Integer>();
         List<UsageHourly> usageHourlies = usageHourlyDao.findByAppkeyAndPlatformAndCreateDate(APPKEY, PLATFORM, create_date);
         for (UsageHourly usageHourly : usageHourlies) {
@@ -46,7 +48,18 @@ public class UsageHourlyService {
             }
             usageHourlyMap.put(usageHourly.getCreate_hour(), count + usageHourly.getNewNum());
         }
-        return usageHourlyMap.values().toArray();
+        Iterator<String> keys = usageHourlyMap.keySet().iterator();
+
+        JSONArray result = new JSONArray();
+        while (keys.hasNext()) {
+            String hourKey = keys.next();
+            JSONArray array = new JSONArray();
+            array.add(hourKey);
+            array.add(usageHourlyMap.get(hourKey));
+            result.add(array);
+        }
+
+        return result;
     }
 
     public Object[] getActiveHourly(String create_date) {

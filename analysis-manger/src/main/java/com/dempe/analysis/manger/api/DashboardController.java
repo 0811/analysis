@@ -56,9 +56,17 @@ public class DashboardController {
     @ResponseBody
     @RequestMapping("/newNumHourly.json")
     public String getNewNumHourly() {
-        JSONObject result = new JSONObject();
-        result.put("today", usageHourlyService.getNewNumHourly(CREATE_DATE));
-        result.put("yesterday", usageHourlyService.getNewNumHourly("20140721"));
+        JSONObject todayJSON = new JSONObject();
+        todayJSON.put("name","今日");
+
+        todayJSON.put("data", usageHourlyService.getNewNumHourly(CREATE_DATE));
+        JSONObject yestJSON = new JSONObject();
+        yestJSON.put("name","昨日");
+        yestJSON.put("data",usageHourlyService.getNewNumHourly("20140721"));
+
+        JSONArray result = new JSONArray();
+        result.add(todayJSON);
+        result.add(yestJSON);
         return result.toJSONString();
     }
 
