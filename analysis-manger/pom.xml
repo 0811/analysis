@@ -28,11 +28,6 @@
     <dependencies>
 
 
-        <dependency>
-            <groupId>com.dempe.analysis</groupId>
-            <artifactId>analysis-monitor-new</artifactId>
-            <version>1.0.0</version>
-        </dependency>
 
         <!-- MongoDB Java Driver -->
         <dependency>
@@ -264,6 +259,15 @@
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
+
+        <!--highchart java api-->
+        <!--<dependency>-->
+            <!--<groupId>nl.pvanassen</groupId>-->
+            <!--<artifactId>highchart-api</artifactId>-->
+            <!--<version>0.1</version>-->
+        <!--</dependency>-->
+
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jsp-api</artifactId>

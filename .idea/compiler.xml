@@ -22,14 +22,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="analysis-common" />
         <module name="analysis-core" />
         <module name="analysis-manger" />
         <module name="analysis-monitor" />
+        <module name="analysis-monitor-new" />
         <module name="analysis-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="analysis-core" target="1.6" />
+      <module name="analysis-monitor" target="1.6" />
+      <module name="analysis-monitor-new" target="1.6" />
       <module name="analysis-web" target="1.6" />
     </bytecodeTargetLevel>
   </component>

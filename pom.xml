@@ -13,6 +13,7 @@
         <module>analysis-web</module>
         <module>analysis-manger</module>
         <module>analysis-monitor</module>
+        <module>analysis-common</module>
     </modules>
 
 
