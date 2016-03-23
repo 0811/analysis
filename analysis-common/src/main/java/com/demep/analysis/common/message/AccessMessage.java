@@ -1,5 +1,7 @@
 package com.demep.analysis.common.message;
 
+import java.io.Serializable;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Dempe
@@ -7,7 +9,7 @@ package com.demep.analysis.common.message;
  * Time: 16:35
  * To change this template use File | Settings | File Templates.
  */
-public class AccessMessage {
+public class AccessMessage implements Serializable {
 
     private String uri;
 

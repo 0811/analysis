@@ -1,4 +1,4 @@
-package com.demep.analysis.common;
+package com.demep.analysis.common.file;
 
 import java.io.*;
 import java.nio.channels.FileChannel;
