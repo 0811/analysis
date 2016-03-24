@@ -1,5 +1,6 @@
 package com.demep.analysis.common.store.mapdb;
 
+import com.demep.analysis.common.message.AccessMessage;
 import org.mapdb.DBMaker;
 
 import java.io.File;
@@ -13,14 +14,12 @@ import java.io.File;
  */
 public class MQueueTest {
     public static void main(String[] args) {
-        MQueue<Integer> queue = new MQueue(DBMaker.newFileDB(new File("queue_test")).closeOnJvmShutdown().make(), "test");
-        for (int i = 0; i < 1000; i++) {
-            queue.offer(i);
-        }
-        for (int i = 0; i < 100; i++) {
-            Integer value = queue.poll();
-            System.out.println(value);
-        }
+        MQueue<AccessMessage> queue = new MQueue(DBMaker.newFileDB(new File("queue_test4")).closeOnJvmShutdown().make(), "test");
+
+        AccessMessage message = new AccessMessage();
+        message.setMethod("post");
+        queue.offer(message);
+        System.out.println(queue.poll().getMethod());
         queue.close();
 
 

@@ -9,7 +9,7 @@ import java.io.Serializable;
  * Time: 16:35
  * To change this template use File | Settings | File Templates.
  */
-public class AccessMessage implements Serializable {
+public class AccessMessage  implements Serializable{
 
     private String uri;
 
@@ -21,7 +21,7 @@ public class AccessMessage implements Serializable {
 
     private int status;// http请求返回状态码
 
-    private long takeTime;// 请求耗费时间
+    private int takeTime;// 请求耗费时间
 
 
     public String getUri() {
@@ -56,11 +56,11 @@ public class AccessMessage implements Serializable {
         this.agent = agent;
     }
 
-    public long getTakeTime() {
+    public int getTakeTime() {
         return takeTime;
     }
 
-    public void setTakeTime(long takeTime) {
+    public void setTakeTime(int takeTime) {
         this.takeTime = takeTime;
     }
 }

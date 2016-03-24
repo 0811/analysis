@@ -5,7 +5,6 @@ import org.mapdb.DB;
 import org.mapdb.DBMaker;
 import org.mapdb.HTreeMap;
 
-import java.io.Serializable;
 import java.util.AbstractQueue;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
@@ -17,7 +16,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * Time: 18:16
  * To change this template use File | Settings | File Templates.
  */
-public class MQueue<E extends Serializable> extends AbstractQueue<E> {
+public class MQueue<E> extends AbstractQueue<E> {
 
     private final static String DED_QUEUE_NAME = "DEF_MAP_QUEUE";
     private final static String HEAD_INDEX_KEY = "headIndex";
